@@ -1,0 +1,640 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{stoversymb}[2015/09/24 Custom Package]
+
+	\RequirePackage{amsthm,amsmath,amsfonts,amssymb,amstext}
+	\RequirePackage{amsbsy} %...............Bold faced math symbols
+	\RequirePackage{mathrsfs}%..............Script lettering 
+	%\RequirePackage[usenames, dvipsnames]{color}
+	%\RequirePackage{xcolor}%................{blue!80!black}, e.g., colors
+	\RequirePackage[table, svgnames, dvipsnames]{xcolor}
+	\RequirePackage{accents}
+	\RequirePackage{mathtools,calc}
+	\RequirePackage{braket}
+	\RequirePackage{bm} %...................More powerful math bold facing
+	\RequirePackage{xparse} %...............For advanced parsing (e.g., InfinityCircle, etc.)
+	
+	%\RequirePackage[mtpscr]{mtpro2}
+%	\usepackage{tgtermes}
+%	\usepackage[T1]{fontenc}
+%	\usepackage[subscriptcorrection,slantedGreek,nofontinfo]{mtpro2}
+%	%% ^== Special paid-for fonts
+	\usepackage[mtpscr]{mtpro2}
+
+	\ProcessOptions\relax
+
+	%---DOUBLE-STRUCK-----------------------------------------------------------
+	\newcommand{\Complexes}{\mathbb{C}}
+	\newcommand{\C}{\mathbb{C}}%............Legacy Reasons
+	\newcommand{\CP}{\mathbb{CP}}
+	\newcommand{\Disc}{\mathbb{D}}
+	\newcommand{\Disk}{\mathbb{D}}
+	\newcommand{\F}{\mathbb{F}}
+	\newcommand{\Quaternions}{\mathbb{H}}
+	\newcommand{\HQ}{\mathbb{H}}%...........Legacy Reasons
+	\newcommand{\Hyperbolic}[1]{\mathbb{H}^{#1}}
+	\newcommand{\HP}{\mathbb{HP}}
+	\newcommand{\K}{\mathbb{K}}
+	\newcommand{\Naturals}{\mathbb{N}}
+	\newcommand{\N}{\mathbb{N}}%............Legacy Reasons
+	\newcommand{\Octonions}{\mathbb{O}}
+	\newcommand{\OO}{\mathbb{O}} %..........Legacy Reasons
+	\newcommand{\OP}{\mathbb{OP}}
+	\renewcommand{\P}{\mathbb{P}}
+	\newcommand{\Rationals}{\mathbb{Q}}
+	\newcommand{\Q}{\mathbb{Q}} %...........Legacy Reasons
+	\newcommand{\Reals}{\mathbb{R}}
+	\newcommand{\R}{\mathbb{R}}%............Legacy Reasons
+	\newcommand{\RP}{\mathbb{RP}}
+	\newcommand{\Integers}{\mathbb{Z}}
+	\newcommand{\Z}{\mathbb{Z}}%............Legacy Reasons
+	\newcommand{\IntegersMod}[1]{\mathbb{Z}/#1 \mathbb{Z}}
+	\newcommand{\PositiveIntegers}{\mathbb{Z}_{>0}}
+	\newcommand{\NonnegativeIntegers}{\mathbb{Z}_{\geq 0}}
+	\newcommand{\NegativeIntegers}{\mathbb{Z}_{<0}}
+	\newcommand{\NonpositiveIntegers}{\mathbb{Z}_{\leq 0}}
+	\newcommand{\PositiveReals}{\mathbb{R}_{>0}}
+	\newcommand{\NonnegativeReals}{\mathbb{R}_{\geq 0}}
+	\newcommand{\NegativeReals}{\mathbb{R}_{<0}}
+	\newcommand{\NonpositiveReals}{\mathbb{R}_{\leq 0}}
+	
+	%---CURSIVE-----------------------------------------------------------------
+	\newcommand{\calA}{\mathcal{A}}
+	\newcommand{\calB}{\mathcal{B}}
+	\newcommand{\calC}{\mathcal{C}}
+	\newcommand{\calD}{\mathcal{D}}
+	\newcommand{\calE}{\mathcal{E}}
+	\newcommand{\calF}{\mathcal{F}}
+	\newcommand{\calG}{\mathcal{G}}
+	\newcommand{\calH}{\mathcal{H}}
+	\newcommand{\calI}{\mathcal{I}}
+	\newcommand{\calJ}{\mathcal{J}}
+	\newcommand{\calK}{\mathcal{K}}
+	\newcommand{\calL}{\mathcal{L}}
+	\newcommand{\calM}{\mathcal{M}}
+	\newcommand{\calN}{\mathcal{N}}
+	\newcommand{\Oh}{\mathcal{O}}
+	\newcommand{\calO}{\mathcal{O}}
+	\newcommand{\calP}{\mathcal{P}}
+	\newcommand{\calQ}{\mathcal{Q}}
+	\newcommand{\calR}{\mathcal{R}}
+	\newcommand{\calS}{\mathcal{S}}
+	\newcommand{\calT}{\mathcal{T}}
+	\newcommand{\calU}{\mathcal{U}}
+	\newcommand{\calV}{\mathcal{V}}
+	\newcommand{\calW}{\mathcal{W}}
+	\newcommand{\calX}{\mathcal{X}}
+	\newcommand{\calY}{\mathcal{Y}}
+	\newcommand{\calZ}{\mathcal{Z}}
+	
+	%---SCRIPT------------------------------------------------------------------
+	\newcommand{\scrA}{\mathscr{a}}
+	\newcommand{\scrB}{\mathscr{b}}
+	\newcommand{\scrC}{\mathscr{c}}
+	\newcommand{\scrD}{\mathscr{d}}
+	\newcommand{\scrE}{\mathscr{e}}
+	\newcommand{\scrF}{\mathscr{f}}
+	\newcommand{\scrG}{\mathscr{g}}
+	\newcommand{\scrH}{\mathscr{h}}
+	\newcommand{\scrI}{\mathscr{i}}
+	\newcommand{\scrJ}{\mathscr{j}}
+	\newcommand{\scrK}{\mathscr{k}}
+	\newcommand{\scrL}{\mathscr{l}}
+	\newcommand{\scrM}{\mathscr{m}}
+	\newcommand{\scrN}{\mathscr{n}}
+	\newcommand{\scrO}{\mathscr{o}}
+	\newcommand{\scrP}{\mathscr{p}}
+	\newcommand{\scrQ}{\mathscr{q}}
+	\newcommand{\scrR}{\mathscr{r}}
+	\newcommand{\scrS}{\mathscr{s}}
+	\newcommand{\scrT}{\mathscr{t}}
+	\newcommand{\scrU}{\mathscr{u}}
+	\newcommand{\scrV}{\mathscr{v}}
+	\newcommand{\scrW}{\mathscr{w}}
+	\newcommand{\scrX}{\mathscr{x}}
+	\newcommand{\scrY}{\mathscr{y}}
+	\newcommand{\scrZ}{\mathscr{z}}
+	\newcommand{\scrAA}{\oldscr{A}}
+	\newcommand{\scrBB}{\oldscr{B}}
+	\newcommand{\scrCC}{\oldscr{C}}
+	\newcommand{\scrDD}{\oldscr{D}}
+	\newcommand{\scrEE}{\oldscr{E}}
+	\newcommand{\scrFF}{\oldscr{F}}
+	\newcommand{\scrGG}{\oldscr{G}}
+	\newcommand{\scrHH}{\oldscr{H}}
+	\newcommand{\scrII}{\oldscr{I}}
+	\newcommand{\scrJJ}{\oldscr{J}}
+	\newcommand{\scrKK}{\oldscr{K}}
+	\newcommand{\scrLL}{\oldscr{L}}
+	\newcommand{\scrMM}{\oldscr{M}}
+	\newcommand{\scrNN}{\oldscr{N}}
+	\newcommand{\scrOO}{\oldscr{O}}
+	\newcommand{\scrPP}{\oldscr{P}}
+	\newcommand{\scrQQ}{\oldscr{Q}}
+	\newcommand{\scrRR}{\oldscr{R}}
+	\newcommand{\scrSS}{\oldscr{S}}
+	\newcommand{\scrTT}{\oldscr{T}}
+	\newcommand{\scrUU}{\oldscr{U}}
+	\newcommand{\scrVV}{\oldscr{V}}
+	\newcommand{\scrWW}{\oldscr{W}}
+	\newcommand{\scrXX}{\oldscr{X}}
+	\newcommand{\scrYY}{\oldscr{Y}}
+	\newcommand{\scrZZ}{\oldscr{Z}}
+
+	%---FRAKTUR-----------------------------------------------------------------
+	\newcommand{\frakA}{\mathfrak{a}}
+	\newcommand{\frakB}{\mathfrak{b}}
+	\newcommand{\frakC}{\mathfrak{c}}
+	\newcommand{\frakD}{\mathfrak{d}}
+	\newcommand{\frakE}{\mathfrak{e}}
+	\newcommand{\frakF}{\mathfrak{f}}
+	\newcommand{\frakG}{\mathfrak{g}}
+	\newcommand{\frakH}{\mathfrak{h}}
+	\newcommand{\frakI}{\mathfrak{i}}
+	\newcommand{\frakJ}{\mathfrak{j}}
+	\newcommand{\frakK}{\mathfrak{k}}
+	\newcommand{\frakL}{\mathfrak{l}}
+	\newcommand{\frakM}{\mathfrak{m}}
+	\newcommand{\frakN}{\mathfrak{n}}
+	\newcommand{\frakO}{\mathfrak{o}}
+	\newcommand{\frakP}{\mathfrak{p}}
+	\newcommand{\frakQ}{\mathfrak{q}}
+	\newcommand{\frakR}{\mathfrak{r}}
+	\newcommand{\frakS}{\mathfrak{s}}
+	\newcommand{\frakT}{\mathfrak{t}}
+	\newcommand{\frakU}{\mathfrak{u}}
+	\newcommand{\frakV}{\mathfrak{v}}
+	\newcommand{\frakW}{\mathfrak{w}}
+	\newcommand{\frakX}{\mathfrak{x}}
+	\newcommand{\frakY}{\mathfrak{y}}
+	\newcommand{\frakZ}{\mathfrak{z}}
+	\newcommand{\frakAA}{\mathfrak{A}}
+	\newcommand{\frakBB}{\mathfrak{B}}
+	\newcommand{\frakCC}{\mathfrak{C}}
+	\newcommand{\frakDD}{\mathfrak{D}}
+	\newcommand{\frakEE}{\mathfrak{E}}
+	\newcommand{\frakFF}{\mathfrak{F}}
+	\newcommand{\frakGG}{\mathfrak{G}}
+	\newcommand{\frakHH}{\mathfrak{H}}
+	\newcommand{\frakII}{\mathfrak{I}}
+	\newcommand{\frakJJ}{\mathfrak{J}}
+	\newcommand{\frakKK}{\mathfrak{K}}
+	\newcommand{\frakLL}{\mathfrak{L}}
+	\newcommand{\frakMM}{\mathfrak{M}}
+	\newcommand{\frakNN}{\mathfrak{N}}
+	\newcommand{\frakOO}{\mathfrak{O}}
+	\newcommand{\frakPP}{\mathfrak{P}}
+	\newcommand{\frakQQ}{\mathfrak{Q}}
+	\newcommand{\frakRR}{\mathfrak{R}}
+	\newcommand{\frakSS}{\mathfrak{S}}
+	\newcommand{\frakTT}{\mathfrak{T}}
+	\newcommand{\frakUU}{\mathfrak{U}}
+	\newcommand{\frakVV}{\mathfrak{V}}
+	\newcommand{\frakWW}{\mathfrak{W}}
+	\newcommand{\frakXX}{\mathfrak{X}}
+	\newcommand{\frakYY}{\mathfrak{Y}}
+	\newcommand{\frakZZ}{\mathfrak{Z}}
+	\newcommand{\mfA}{\mathfrak{a}}
+	\newcommand{\mfB}{\mathfrak{b}}
+	\newcommand{\mfC}{\mathfrak{c}}
+	\newcommand{\mfD}{\mathfrak{d}}
+	\newcommand{\mfE}{\mathfrak{e}}
+	\newcommand{\mfF}{\mathfrak{f}}
+	\newcommand{\mfG}{\mathfrak{g}}
+	\newcommand{\mfH}{\mathfrak{h}}
+	\newcommand{\mfI}{\mathfrak{i}}
+	\newcommand{\mfJ}{\mathfrak{j}}
+	\newcommand{\mfK}{\mathfrak{k}}
+	\newcommand{\mfL}{\mathfrak{l}}
+	\newcommand{\mfM}{\mathfrak{m}}
+	\newcommand{\mfN}{\mathfrak{n}}
+	\newcommand{\mfO}{\mathfrak{o}}
+	\newcommand{\mfP}{\mathfrak{p}}
+	\newcommand{\mfQ}{\mathfrak{q}}
+	\newcommand{\mfR}{\mathfrak{r}}
+	\newcommand{\mfS}{\mathfrak{s}}
+	\newcommand{\mfT}{\mathfrak{t}}
+	\newcommand{\mfU}{\mathfrak{u}}
+	\newcommand{\mfV}{\mathfrak{v}}
+	\newcommand{\mfW}{\mathfrak{w}}
+	\newcommand{\mfX}{\mathfrak{x}}
+	\newcommand{\mfY}{\mathfrak{y}}
+	\newcommand{\mfZ}{\mathfrak{z}}
+	\newcommand{\mfAA}{\mathfrak{A}}
+	\newcommand{\mfBB}{\mathfrak{B}}
+	\newcommand{\mfCC}{\mathfrak{C}}
+	\newcommand{\mfDD}{\mathfrak{D}}
+	\newcommand{\mfEE}{\mathfrak{E}}
+	\newcommand{\mfFF}{\mathfrak{F}}
+	\newcommand{\mfGG}{\mathfrak{G}}
+	\newcommand{\mfHH}{\mathfrak{H}}
+	\newcommand{\mfII}{\mathfrak{I}}
+	\newcommand{\mfJJ}{\mathfrak{J}}
+	\newcommand{\mfKK}{\mathfrak{K}}
+	\newcommand{\mfLL}{\mathfrak{L}}
+	\newcommand{\mfMM}{\mathfrak{M}}
+	\newcommand{\mfNN}{\mathfrak{N}}
+	\newcommand{\mfOO}{\mathfrak{O}}
+	\newcommand{\mfPP}{\mathfrak{P}}
+	\newcommand{\mfQQ}{\mathfrak{Q}}
+	\newcommand{\mfRR}{\mathfrak{R}}
+	\newcommand{\mfSS}{\mathfrak{S}}
+	\newcommand{\mfTT}{\mathfrak{T}}
+	\newcommand{\mfUU}{\mathfrak{U}}
+	\newcommand{\mfVV}{\mathfrak{V}}
+	\newcommand{\mfWW}{\mathfrak{W}}
+	\newcommand{\mfXX}{\mathfrak{X}}
+	\newcommand{\mfYY}{\mathfrak{Y}}
+	\newcommand{\mfZZ}{\mathfrak{Z}}
+	
+	%---ROMAN-------------------------------------------------------------------
+	\newcommand{\rmA}{\mathrm{a}}
+	\newcommand{\rmB}{\mathrm{b}}
+	\newcommand{\rmC}{\mathrm{c}}
+	\newcommand{\rmD}{\mathrm{d}}
+	\newcommand{\rmE}{\mathrm{e}}
+	\newcommand{\rmF}{\mathrm{f}}
+	\newcommand{\rmG}{\mathrm{g}}
+	\newcommand{\rmH}{\mathrm{h}}
+	\newcommand{\rmI}{\mathrm{i}}
+	\newcommand{\rmJ}{\mathrm{j}}
+	\newcommand{\rmK}{\mathrm{k}}
+	\newcommand{\rmL}{\mathrm{l}}
+	\newcommand{\rmM}{\mathrm{m}}
+	\newcommand{\rmN}{\mathrm{n}}
+	\newcommand{\rmO}{\mathrm{o}}
+	\newcommand{\rmP}{\mathrm{p}}
+	\newcommand{\rmQ}{\mathrm{q}}
+	\newcommand{\rmR}{\mathrm{r}}
+	\newcommand{\rmS}{\mathrm{s}}
+	\newcommand{\rmT}{\mathrm{t}}
+	\newcommand{\rmU}{\mathrm{u}}
+	\newcommand{\rmV}{\mathrm{v}}
+	\newcommand{\rmW}{\mathrm{w}}
+	\newcommand{\rmX}{\mathrm{x}}
+	\newcommand{\rmY}{\mathrm{y}}
+	\newcommand{\rmZ}{\mathrm{z}}
+	\newcommand{\rmAA}{\mathrm{A}}
+	\newcommand{\rmBB}{\mathrm{B}}
+	\newcommand{\rmCC}{\mathrm{C}}
+	\newcommand{\rmDD}{\mathrm{D}}
+	\newcommand{\rmEE}{\mathrm{E}}
+	\newcommand{\rmFF}{\mathrm{F}}
+	\newcommand{\rmGG}{\mathrm{G}}
+	\newcommand{\rmHH}{\mathrm{H}}
+	\newcommand{\rmII}{\mathrm{I}}
+	\newcommand{\rmJJ}{\mathrm{J}}
+	\newcommand{\rmKK}{\mathrm{K}}
+	\newcommand{\rmLL}{\mathrm{L}}
+	\newcommand{\rmMM}{\mathrm{M}}
+	\newcommand{\rmNN}{\mathrm{N}}
+	\newcommand{\rmOO}{\mathrm{O}}
+	\newcommand{\rmPP}{\mathrm{P}}
+	\newcommand{\rmQQ}{\mathrm{Q}}
+	\newcommand{\rmRR}{\mathrm{R}}
+	\newcommand{\rmSS}{\mathrm{S}}
+	\newcommand{\rmTT}{\mathrm{T}}
+	\newcommand{\rmUU}{\mathrm{U}}
+	\newcommand{\rmVV}{\mathrm{V}}
+	\newcommand{\rmWW}{\mathrm{W}}
+	\newcommand{\rmXX}{\mathrm{X}}
+	\newcommand{\rmYY}{\mathrm{Y}}
+	\newcommand{\rmZZ}{\mathrm{Z}}
+	
+	%---SANS_SERIF--------------------------------------------------------------
+	\newcommand{\sansA}{\mathsf{a}}
+	\newcommand{\sansB}{\mathsf{b}}
+	\newcommand{\sansC}{\mathsf{c}}
+	\newcommand{\sansD}{\mathsf{d}}
+	\newcommand{\sansE}{\mathsf{e}}
+	\newcommand{\sansF}{\mathsf{f}}
+	\newcommand{\sansG}{\mathsf{g}}
+	\newcommand{\sansH}{\mathsf{h}}
+	\newcommand{\sansI}{\mathsf{i}}
+	\newcommand{\sansJ}{\mathsf{j}}
+	\newcommand{\sansK}{\mathsf{k}}
+	\newcommand{\sansL}{\mathsf{l}}
+	\newcommand{\sansM}{\mathsf{m}}
+	\newcommand{\sansN}{\mathsf{n}}
+	\newcommand{\sansO}{\mathsf{o}}
+	\newcommand{\sansP}{\mathsf{p}}
+	\newcommand{\sansQ}{\mathsf{q}}
+	\newcommand{\sansR}{\mathsf{r}}
+	\newcommand{\sansS}{\mathsf{s}}
+	\newcommand{\sansT}{\mathsf{t}}
+	\newcommand{\sansU}{\mathsf{u}}
+	\newcommand{\sansV}{\mathsf{v}}
+	\newcommand{\sansW}{\mathsf{w}}
+	\newcommand{\sansX}{\mathsf{x}}
+	\newcommand{\sansY}{\mathsf{y}}
+	\newcommand{\sansZ}{\mathsf{z}}
+	\newcommand{\sansAA}{\mathsf{A}}
+	\newcommand{\sansBB}{\mathsf{B}}
+	\newcommand{\sansCC}{\mathsf{C}}
+	\newcommand{\sansDD}{\mathsf{D}}
+	\newcommand{\sansEE}{\mathsf{E}}
+	\newcommand{\sansFF}{\mathsf{F}}
+	\newcommand{\sansGG}{\mathsf{G}}
+	\newcommand{\sansHH}{\mathsf{H}}
+	\newcommand{\sansII}{\mathsf{I}}
+	\newcommand{\sansJJ}{\mathsf{J}}
+	\newcommand{\sansKK}{\mathsf{K}}
+	\newcommand{\sansLL}{\mathsf{L}}
+	\newcommand{\sansMM}{\mathsf{M}}
+	\newcommand{\sansNN}{\mathsf{N}}
+	\newcommand{\sansOO}{\mathsf{O}}
+	\newcommand{\sansPP}{\mathsf{P}}
+	\newcommand{\sansQQ}{\mathsf{Q}}
+	\newcommand{\sansRR}{\mathsf{R}}
+	\newcommand{\sansSS}{\mathsf{S}}
+	\newcommand{\sansTT}{\mathsf{T}}
+	\newcommand{\sansUU}{\mathsf{U}}
+	\newcommand{\sansVV}{\mathsf{V}}
+	\newcommand{\sansWW}{\mathsf{W}}
+	\newcommand{\sansXX}{\mathsf{X}}
+	\newcommand{\sansYY}{\mathsf{Y}}
+	\newcommand{\sansZZ}{\mathsf{Z}}
+	
+	%---BOLD--------------------------------------------------------------------
+	\newcommand{\catAb}{\mathbf{Ab}}
+	\newcommand{\catTopPair}{\mathbf{Top_2}}
+	\newcommand{\catLMod}{\mathbf{LMod}_{\boldsymbol{R}}}
+	\newcommand{\catRMod}{\mathbf{RMod}_{\boldsymbol{R}}}
+	\newcommand{\catLModQ}[1]{\mathbf{LMod}_{\boldsymbol{#1}}}
+	\newcommand{\catRModQ}[1]{\mathbf{RMod}_{\boldsymbol{#1}}}
+	\newcommand{\bun}[1]{\mathbf{Bun}_{\bm{#1}}}
+	
+	%---TEXT-OPERATORS----------------------------------------------------------
+	\DeclareMathOperator{\arcsec}{arcsec}
+	\DeclareMathOperator{\arccot}{arccot}
+	\DeclareMathOperator{\arccsc}{arccsc}
+	\DeclareMathOperator{\ad}{ad}
+	\DeclareMathOperator{\Ad}{Ad}
+	\DeclareMathOperator{\Aff}{Aff}
+	\DeclareMathOperator{\Arg}{Arg}
+	\DeclareMathOperator{\Arr}{Arr}
+	\DeclareMathOperator{\arr}{Arr}
+	\DeclareMathOperator{\Aut}{Aut}
+	\DeclareMathOperator{\card}{card}
+	\DeclareMathOperator{\Cliff}{Cliff}
+	\DeclareMathOperator{\codom}{codomain}
+	\DeclareMathOperator{\col}{col}
+	\DeclareMathOperator{\comp}{comp}
+	\DeclareMathOperator{\const}{const}
+	\DeclareMathOperator{\Crit}{Crit}
+	\DeclareMathOperator{\Curl}{curl}
+	\DeclareMathOperator{\depth}{depth}
+	\DeclareMathOperator{\dom}{domain}
+	\DeclareMathOperator{\diag}{diag}
+	\DeclareMathOperator{\dict}{dict}
+	\DeclareMathOperator{\Diff}{Diff}
+	\DeclareMathOperator{\disc}{disc}
+	\DeclareMathOperator{\dist}{dist}
+	\DeclareMathOperator{\Div}{div}
+	\newcommand{\dydx}{\frac{dy}{dx}}
+	\newcommand{\ddyddx}{\frac{d^{\kern0.0625em 2}y}{dx^2}}
+	\DeclareMathOperator{\E}{E}
+	\DeclareMathOperator{\End}{End}
+	\DeclareMathOperator{\FF}{F}
+	\DeclareMathOperator{\FC}{FC}
+	\DeclareMathOperator{\Fr}{Fr}
+	\newcommand{\fiberseq}{F\xrightarrow{\,\,\phantom{\pi}\,\,} E\xrightarrow{\,\,\pi\,\,}B}
+	\newcommand{\fiberseqshort}{\pi:E\to B}
+	\DeclareMathOperator{\G}{G}
+	\DeclareMathOperator{\Ho}{Ho}
+	\DeclareMathOperator{\Hol}{Hol}
+	\DeclareMathOperator{\hol}{hol}
+	\DeclareMathOperator{\Hom}{Hom}
+	\DeclareMathOperator{\Homeo}{Homeo}
+	\DeclareMathOperator{\id}{id} %.........Legacy Reasons
+	\DeclareMathOperator{\Id}{id}
+	\renewcommand{\Im}{\DeclareMathOperator{\Im}{Im}}
+	\DeclareMathOperator{\im}{Im}
+	\DeclareMathOperator{\image}{image}
+	\DeclareMathOperator{\Image}{Im}
+	\DeclareMathOperator{\Ind}{ind}
+	\DeclareMathOperator{\Int}{int}
+	\DeclareMathOperator{\Iso}{Iso}
+	\DeclareMathOperator{\Isom}{Isom}
+	\DeclareMathOperator{\Kernel}{Ker}
+	\DeclareMathOperator{\lcm}{lcm}
+	\DeclareMathOperator{\len}{len}
+	\DeclareMathOperator{\LHS}{LHS}
+	%\DeclareMathOperator{\mag}{Mag}
+	\DeclareMathOperator{\Mat}{Mat}
+	\DeclareMathOperator{\Mor}{Mor}
+	\DeclareMathOperator{\Morse}{Morse}
+	\DeclareMathOperator{\norm}{Norm}
+	\DeclareMathOperator{\nul}{nul}
+	\DeclareMathOperator{\nullity}{nullity}
+	\DeclareMathOperator{\obj}{Obj}
+	\DeclareMathOperator{\Obj}{Obj}
+	\DeclareMathOperator{\op}{op}
+	\DeclareMathOperator{\Op}{Op}
+	\DeclareMathOperator{\prd}{prod}
+	\DeclareMathOperator{\proj}{proj}
+	\DeclareMathOperator{\pt}{pt}
+	\newcommand{\ptset}{\{\pt\}}
+	\DeclareMathOperator{\range}{range}
+	\DeclareMathOperator{\rank}{rank}
+	\renewcommand{\Re}{\DeclareMathOperator{\Re}{Re}}
+	\DeclareMathOperator{\rel}{rel\,}
+	\DeclareMathOperator{\RHS}{RHS}
+	\DeclareMathOperator{\row}{row}
+	\DeclareMathOperator{\vsspan}{span}
+	\DeclareMathOperator{\std}{std}
+	\DeclareMathOperator{\Tor}{Tor}
+	\DeclareMathOperator{\Tr}{Tr}
+	\DeclareMathOperator{\tr}{tr}
+	
+	%Lie Groups & Related ==============================================
+	\renewcommand{\O}{\DeclareMathOperator{\O}{O}}
+	\DeclareMathOperator{\GL}{GL}
+	\DeclareMathOperator{\PGL}{PGL}
+	\DeclareMathOperator{\Pin}{Pin}
+	\DeclareMathOperator{\PSL}{PSL}
+	\DeclareMathOperator{\PSO}{PSO}
+	\DeclareMathOperator{\PSU}{PSU}
+	\DeclareMathOperator{\RREF}{RREF}
+	\DeclareMathOperator{\SL}{SL}
+	\DeclareMathOperator{\SO}{SO}
+	\DeclareMathOperator{\Sp}{Sp}
+	\DeclareMathOperator{\Spin}{Spin}
+	\DeclareMathOperator{\SpinC}{Spin^c}
+	\DeclareMathOperator{\SpinCC}{Spin^\mathbb{C}}
+	\DeclareMathOperator{\SU}{SU}
+	\DeclareMathOperator{\U}{U}
+	
+	%---SYMBOLS-----------------------------------------------------------------
+	%\newcommand{\Deff}[1]{{\color{red}\textit{#1}}}
+	%\newcommand{\Defn}[1]{{\textbf{\textit{#1}}}}
+	\newcommand{\bigwedgestar}{\sideset{}{^*}\bigwedge}
+	\newcommand{\bigwedgesup}[1]{\sideset{}{^{#1}}\bigwedge}
+	\newcommand{\ceil}[1]{\lceil {#1} \rceil}
+	\newcommand{\deff}{\overset{\mathrm{def}}{=}}
+	\newcommand{\der}{\mathrm{d}}
+	\renewcommand{\emptyset}{\varnothing}
+	\newcommand{\eps}{\varepsilon}
+	\newcommand{\phii}{\varphi}
+	\newcommand{\floor}[1]{\lfloor {#1} \rfloor}
+	\renewcommand{\hat}{\widehat}
+	\newcommand{\homeo}{\cong}
+	\newcommand{\interior}[1]{%
+		\accentset{\circ}{#1}
+	}
+	\newcommand{\into}{\hookrightarrow}
+	\newcommand{\leftimp}{\Longleftarrow}
+	\newcommand{\ltri}{\triangleleft}
+	\newcommand{\mf}{\mathfrak}
+	\newcommand{\blue}[1]{{\color{blue}#1}}
+	\definecolor{darkgreen}{rgb}{0.3,0.5,0.2}
+	\newcommand{\green}[1]{{\color{darkgreen}#1}}
+	\newcommand{\orange}[1]{{\color{orange}#1}}
+	\newcommand{\red}[1]{{\color{red}#1}}
+	\newcommand{\redcite}[1]{({\color{red} Cite {#1} Here})}
+	\newcommand{\rightimp}{\Longrightarrow}
+	\newcommand{\rtri}{\triangleright}
+	\newcommand{\surj}{\twoheadrightarrow}
+	\renewcommand{\tilde}{\widetilde}
+	\newcommand{\To}{\longrightarrow}
+	\newcommand{\MapsTo}{\longmapsto}
+	\newcommand{\trans}[1]{{#1}^\pitchfork}
+	\newcommand{\transto}{\pitchfork}
+	%\renewcommand{\vec}{\boldsymbol}
+	\newcommand{\simgeq}{\gtrsim}
+	\newcommand{\simleq}{\lesssim}
+	
+	%---MISC--------------------------------------------------------------------
+	\newcommand{\cl}{\overline}
+	\newcommand{\CL}[1]{\mathrm{cl}\left({#1}\right)}
+	\newcommand{\und}{\underline}
+	\newcommand{\bndry}{\partial}
+	\newcommand{\Cl}{\mathcal{C}\ell}
+	\newcommand{\Cln}[1]{\mathcal{C}\ell_{0,{#1}}}
+	\newcommand{\Clpq}[2]{\mathcal{C}\ell_{{#1},{#2}}}
+	\newcommand{\emptydist}[1]{#1(\,\cdot\,,\,\cdot\,)}
+	\newcommand{\emptynorm}[1]{\|\,\cdot\,\|_{#1}}
+	\newcommand{\emptyinner}[1]{\langle\,\cdot\,,\,\cdot\,\rangle_{#1}}
+	%\newcommand{\metricd}[2]{d(#1,#2)}
+	\newcommand{\metric}[3]{#1(#2,#3)}
+	\newcommand{\vsnormv}[1]{\|#1\|_V}
+	\newcommand{\vect}[1]{\mathbf{#1}}
+	\newcommand{\xx}{\boldsymbol{x}}
+	\newcommand{\TODO}{\textbf{TODO: }}
+	\newcommand{\claim}{\underline{Claim:}\,\,}
+	\newcommand{\ReebFol}{\folF_{\operatorname{Reeb}}}
+	\newcommand{\folE}{\calE}
+	\newcommand{\folF}{\calF}
+	\newcommand{\folG}{\calG}
+	\newcommand{\lamL}{\calL}
+	\newcommand{\HorFoliation}{\calF_\infty^h}
+	\newcommand{\VertFoliation}{\calF_\infty^v}
+	\newcommand{\InfinityBundle}{E_\infty}
+	\newcommand{\FiniteMarker}{\scrMM^{<\infty}}
+	\newcommand{\FiniteMarkerSubset}{\scrMM^{<\infty}_0}	
+	\newcommand{\FiniteMarkerSection}[1]{#1_{\FiniteMarker}}
+	\newcommand{\FiniteMarkerSubsetSection}[1]{#1_{\FiniteMarkerSubset}}
+	\newcommand{\FiniteMarkerRightSection}[1]{\FiniteMarkerSection{#1}^R}
+	\newcommand{\FiniteMarkerSubsetRightSection}[1]{\FiniteMarkerSubsetSection{#1}^R}
+	\newcommand{\LeafTop}{\tau_{\mathrm{leaf}}}
+	\DeclareMathOperator{\nbd}{\mathrm{nbd}}
+	\newcommand{\SubspaceTop}{\tau_{\mathrm{sub}}}
+	\newcommand{\ls}{\mathrm{ls}}
+	
+	%===Needs xparse=========================================
+	\NewDocumentCommand{\InfinityCircle}{g}{%
+		\IfValueTF{#1}{%
+			S^1_{\infty}\left(#1\right)%
+		}{%
+		S^1_{\infty}%
+	}%
+	}
+
+	\NewDocumentCommand{\InfinityReals}{g}{%
+		\IfValueTF{#1}{%
+			\Reals_{\infty}\left(#1\right)%
+		}{%
+			\Reals_{\infty}%
+		}%
+	}
+	
+	\NewDocumentCommand{\InfinitySphere}{g}{%
+		\IfValueTF{#1}{%
+			S^2_{\infty}\left(#1\right)%
+		}{%
+		S^2_{\infty}%
+	}%
+	}
+	
+	\NewDocumentCommand{\LimSet}{g}{%
+		\IfValueTF{#1}{%
+			\oldscr{L}\left(#1\right)%
+		}{%
+		\oldscr{L}%
+	}%
+	}
+	%========================================================
+	\newcommand{\TransFol}{\folF_{\transto}}
+	\newcommand{\UniversalCircle}{S^1_{\mathrm{univ}}}
+	\newcommand{\UniversalRepresentation}{\rho_{\mathrm{univ}}}
+	\newcommand{\UniversalLam}{\Lambda_{\mathrm{univ}}}
+	\newcommand{\LiftedUniversalLam}{\tilde{\Lambda}_{\mathrm{univ}}}
+	\newcommand{\GeodesicLam}{\Lambda_{\mathrm{geo}}}
+	\newcommand{\LiftedGeodesicLam}{\tilde{\Lambda}_{\mathrm{geo}}}
+	\newcommand{\SplitLam}{\Lambda_{\mathrm{split}}}
+	\newcommand{\LiftedSplitLam}{\tilde{\Lambda}_{\mathrm{split}}}
+	\newcommand{\StableLam}{\Lambda^s}
+	\newcommand{\UnstableLam}{\Lambda^u}
+	\DeclareMathOperator{\core}{core}
+
+	\newcommand{\UniversalCalLam}{\calL_{\mathrm{univ}}}
+	\newcommand{\LiftedUniversalCalLam}{\tilde{\calL}_{\mathrm{univ}}}
+	\newcommand{\GeodesicCalLam}{\calL_{\mathrm{geo}}}
+	\newcommand{\LiftedGeodesicCalLam}{\tilde{\calL}_{\mathrm{geo}}}
+	\newcommand{\SplitCalLam}{\calL_{\mathrm{split}}}
+	\newcommand{\LiftedSplitCalLam}{\tilde{\calL}_{\mathrm{split}}}
+	\newcommand{\StableCalLam}{\calL^s}
+	\newcommand{\UnstableCalLam}{\calL^u}
+	
+	\newcommand{\specsclose}{\cl{\oldscr{S}}}
+	\newcommand{\specsclosefull}{\left(\cl{\oldscr{S}},\cl{\simgeq}\right)}
+	%----------------------------------------------------------
+	\DeclareMathOperator{\UT}{UT}
+	\newcommand{\Sequence}[3]{\{#1\}_{#2\in #3}}
+	\newcommand{\parseq}[1]{{(#1_i)_{i\in \PositiveIntegers}}}
+	\newcommand{\brackseq}[1]{{\{#1_i\}_{i\in \PositiveIntegers}}}
+	\newcommand{\braceseq}[1]{{\{#1_i\}_{i\in \PositiveIntegers}}}
+	\newcommand{\seqsub}[2]{{#1}_{{#2}\in \PositiveIntegers}}
+	\newcommand{\QED}[1]{\hfill\fbox{#1}}
+	\newcommand{\RR}{\operatorname{R}}
+	\newcommand{\contra}{\rightarrow\leftarrow}
+	\newcommand{\codim}{\operatorname{codim}}
+	
+	\makeatletter
+	\newcommand*{\Frac}[1]{%
+	  \fr@aux#1/,\@nil
+	}
+	\def\fr@aux#1/#2/#3\@nil{%
+	  \ensuremath{\frac{#1}{#2}}%
+	}
+	\makeatother
+	
+%	\usepackage{xparse}
+	\ExplSyntaxOn
+	\NewDocumentCommand{\rvec}{sO{}m}
+	{
+		\IfBooleanTF{#1}
+		{\left(\rvec_print:n {#3}\right)}
+		{\mathopen{#2(}\rvec_print:n {#3}\mathclose{#2)}}
+	}
+	
+	\seq_new:N \l_rvec_list_seq
+	\tl_new:N \l_rvec_last_tl
+	\cs_new_protected:Npn \rvec_print:n #1
+	{
+		\seq_set_split:Nnn \l_rvec_list_seq { , } { #1 }
+		\seq_pop_right:NN \l_rvec_list_seq \l_rvec_last_tl
+		\seq_map_inline:Nn \l_rvec_list_seq { ##1 ,\, }
+		\tl_use:N \l_rvec_last_tl
+	}
+	\ExplSyntaxOff
+\endinput
