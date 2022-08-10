@@ -12,6 +12,8 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <h3>10 Aug 2022</h3>
 <ol>
     <li>Got a 0<sup>th</sup> draft of hash sets working in <code>C++</code>. To get this working, I had to abandon my aspirations for generic types and just stick with integers. Generic types will come soon! ::crosses fingers::</li>
+    <li>Later, added generics to <code>C++</code> hash sets working.</li>
+    <li>Also, removed references to <code>this->*</code>, as that doesn't appear to be very <code>C++</code>-like? ::shrug::</li>
 </ol>
 <h3>23 Jul 2022</h3>
 <ol>
