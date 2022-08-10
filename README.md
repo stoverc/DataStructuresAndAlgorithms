@@ -9,9 +9,13 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>10 Aug 2022</h3>
+<ol>
+    <li>Got a 0<sup>th</sup> draft of hash sets working in <code>C++</code>. To get this working, I had to abandon my aspirations for generic types and just stick with integers. Generic types will come soon! ::crosses fingers::</li>
+</ol>
 <h3>23 Jul 2022</h3>
 <ol>
-    <li>Decided to try my hand at Hash Maps in <code>C++</code> after having not written <code>C++</code> code in 15 years. It did <b>not</b> go well!</li>
+    <li>Decided to try my hand at hash sets in <code>C++</code> after having not written <code>C++</code> code in 15 years. It did <b>not</b> go well!</li>
     <li>Made some small tweaks to the <code>Java</code> Hash Map file.</li>
     <li>Edited the README and the .gitignore files.</li>
     <li>Later, removed some of the <code>Python</code> test code so the GitHub calculator thing gets the language percentages more accurate.</li>
