@@ -3,12 +3,17 @@ From-scratch attempts at implementing some common data structures and algorithms
  
 Currently, this repo contains (both bug-free and buggy) versions of code I've written to try to get a better understanding of the under-the-hood inner workings of various data structures. 
  
-As of this writing (23 July 2022), most of the code is in `Python3`, though some `Java` and `C++` updates have started to creep in as well. Future iterations will include more `Java` and `C++` code, and perhaps some other languages as well.
+As of this writing (23 July 2022), most of the code is in `Python3`, though some `Java` and `C++` updates have started to creep in as well. Future iterations will include more `Java` and `C++` code, and perhaps some other languages as well. **Update:** Due to some changes in circumstance, `C++` may become the main focal point of my contributions; we shall see.
 
-As of 3 July 2022, a study guide has also made its way into the repo. This study guide is `LaTeX`'ed and is intended to help guide my studies + document the journey so far.
+As of 3 July 2022, a study guide has also made its way into the repo. This study guide is `LaTeX`'ed and is intended to help guide my studies + document the journey so far. **Update:** Later, I removed the `TeX` source code from the repo so that the code percentages would better reflect my _real_ contributions rather than showing a repo with 80% `TeX` code!
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>12 Aug 2022</h3>
+<ol>
+    <li>Started working on singly linked lists in C++.</li>
+    <li>In so doing, realized I have <b>a lot</b> to (re-)learn (for the 17th time) about pointers.</li>
+</ol>
 <h3>10 Aug 2022</h3>
 <ol>
     <li>Got a 0<sup>th</sup> draft of hash sets working in <code>C++</code>. To get this working, I had to abandon my aspirations for generic types and just stick with integers. Generic types will come soon! ::crosses fingers::</li>
