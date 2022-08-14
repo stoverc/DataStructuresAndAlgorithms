@@ -7,8 +7,18 @@ As of this writing (23 July 2022), most of the code is in `Python3`, though some
 
 As of 3 July 2022, a study guide has also made its way into the repo. This study guide is `LaTeX`'ed and is intended to help guide my studies + document the journey so far. **Update:** Later, I removed the `TeX` source code from the repo so that the code percentages would better reflect my _real_ contributions rather than showing a repo with 80% `TeX` code!
 
+## TODO:
+ * Learn more about pointers.
+ * Get all the `Python` code translated in to `C++` (!!!) and `Java` (as time permits).
+ * Keep working on the study guide.
+
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>14 Aug 2022</h3>
+<ol>
+    <li>Completed singly linked list in C++ with generics.</li>
+    <li>Learned more about pointers, but still need additional refresher.</li>
+</ol>
 <h3>12 Aug 2022</h3>
 <ol>
     <li>Started working on singly linked lists in C++.</li>
