@@ -14,14 +14,19 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>19 Aug 2022</h3>
+<ol>
+    <li>Made some small edits to linked list in <code>C++</code></li>
+    <li>Completed doubly linked list in <code>C++</code> with generics.</li>
+</ol>
 <h3>14 Aug 2022</h3>
 <ol>
-    <li>Completed singly linked list in C++ with generics.</li>
+    <li>Completed singly linked list in <code>C++</code> with generics.</li>
     <li>Learned more about pointers, but still need additional refresher.</li>
 </ol>
 <h3>12 Aug 2022</h3>
 <ol>
-    <li>Started working on singly linked lists in C++.</li>
+    <li>Started working on singly linked lists in <code>C++</code>.</li>
     <li>In so doing, realized I have <b>a lot</b> to (re-)learn (for the 17th time) about pointers.</li>
 </ol>
 <h3>10 Aug 2022</h3>

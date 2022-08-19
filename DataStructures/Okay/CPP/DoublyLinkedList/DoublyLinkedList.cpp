@@ -8,6 +8,7 @@ class node{
     public:
         T data;             // Find a way to make private?
         node<T>* next;      // Ditto?
+        node<T>* prev;
         node<T>();
         node<T>(T datum);
 };
@@ -16,12 +17,14 @@ template <typename T>
 node<T>::node(){
     data = std::nan("1");
     next = NULL;
+    prev = NULL;
 }
 
 template <typename T>
 node<T>::node(T datum){
-    this->data = datum;
-    this->next = NULL;
+    data = datum;
+    next = NULL;
+    prev = NULL;
 }
 
 template <typename T>
@@ -73,9 +76,13 @@ void MyLinkedList<T>::addAtTail(T val){
             curr = (*curr).next;
         }
 
+        node<T>* old_prev = curr;
+
         (*curr).next = new_node;
+        (*curr).prev = old_prev;
 
         std::cout << "The new tail is: " << (*curr).next->data << std::endl;
+        std::cout << "Its previous is: " << (*curr).prev->data << std::endl;
     }
 }
 
@@ -99,9 +106,11 @@ void MyLinkedList<T>::addAtIndex(int index, T val){
     while((*curr).next != NULL){
         if(count == index-1){
             (*new_node).next = (*curr).next;
+            (*new_node).prev = (*curr).prev;
             (*curr).next = new_node;
 
             std::cout << "At index " << index << ", the item is: " << (*curr).next->data << std::endl;
+            std::cout << "Its previous is: " << (*curr).prev->data << std::endl;
 
             return;
         }
@@ -142,7 +151,7 @@ T MyLinkedList<T>::get(int index){
 template <typename T>
 void MyLinkedList<T>::deleteAtIndex(int index){
     node<T>* temp = head;
-    node<T>* prev;
+    node<T>* curr;
     int i = 0;
 
     if(head == NULL){
@@ -161,7 +170,7 @@ void MyLinkedList<T>::deleteAtIndex(int index){
         }
 
         i+=1;
-        prev = temp;
+        curr = temp;
         temp = (*temp).next;
     }
 
@@ -169,8 +178,10 @@ void MyLinkedList<T>::deleteAtIndex(int index){
         return;
     }
 
-    (*prev).next = (*temp).next;
-    std::cout << "The new item at index " << index << " is " << (*prev).next->data << std::endl;
+    (*curr).next = (*temp).next;
+    (*curr).prev = (*temp).prev;
+    std::cout << "The new item at index " << index << " is " << (*curr).next->data << std::endl;
+    std::cout << "Its previous is: " << (*curr).prev->data << std::endl;
 }
 
 template <typename T>
