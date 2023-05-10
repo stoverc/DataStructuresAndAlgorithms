@@ -8,12 +8,17 @@ As of this writing (23 July 2022), most of the code is in `Python3`, though some
 As of 3 July 2022, a study guide has also made its way into the repo. This study guide is `LaTeX`'ed and is intended to help guide my studies + document the journey so far. **Update:** Later, I removed the `TeX` source code from the repo so that the code percentages would better reflect my _real_ contributions rather than showing a repo with 80% `TeX` code!
 
 ## TODO:
- * Learn more about pointers.
  * Get all the `Python` code translated in to `C++` (!!!) and `Java` (as time permits).
+ * Translate `Array` ADT from C++ to `Python` and `Java`.
+ * Get study guide source re-added so I can work on it elsewhere.
  * Keep working on the study guide.
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>10 May 2023</h3>
+<ol>
+ <li>Committed initial version of Array ADT in <code>C++</code> (both <code>.cpp</code> and <code>.h</code> files).</li>
+</ol> 
 <h3>19 Aug 2022</h3>
 <ol>
     <li>Made some small edits to linked list in <code>C++</code></li>
