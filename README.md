@@ -9,7 +9,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 ## TODO:
  * Get all the `Python` code translated in to `C++` (!!!) and `Java` (as time permits).
- * Translate `Array` ADT from C++ to `Python` and `Java`.
+ * Translate `Array` ADT from `C++` to `Python` and `Java`.
  * Get study guide source re-added so I can work on it elsewhere.
  * Keep working on the study guide.
 
