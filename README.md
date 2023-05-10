@@ -17,6 +17,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <summary><h2>Changelog</h2></summary>
 <h3>10 May 2023</h3>
 <ol>
+ <li>Later, fixed up some pointer-related things in Array ADT.</li>
  <li>Committed initial version of Array ADT in <code>C++</code> (both <code>.cpp</code> and <code>.h</code> files).</li>
 </ol> 
 <h3>19 Aug 2022</h3>
