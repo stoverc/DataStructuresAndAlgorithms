@@ -18,6 +18,8 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <summary><h2>Changelog</h2></summary>
  <h3>11 May 2023</h3>
 <ol>
+  <li>Later, improved incapsulation in Array ADT by making member vars private + adding getters.</li>
+  <li>Added functionality in Array ADT for <code>SortedInsert</code>, <code>IsSorted</code>, and <code>PosNegSwap</code>.</li>
   <li>In Array ADT <code>C++</code> files: Added <code>Reverse</code>, <code>LeftShift</code>, <code>LeftRotate</code>, <code>RightShift</code>, <code>RightRotate</code>.</li>
   <li>Later, rewrote some code in a clearer manner + deleted some commented-out code in <code>C++</code> Array ADT.</li>
   <li>To Array ADT in <code>C++</code>: Added <code>Get</code>, <code>Set</code>, <code>Sum</code>, <code>Avg</code>, <code>Max</code>, and <code>Min</code>.</li>
