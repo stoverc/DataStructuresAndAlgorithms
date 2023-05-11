@@ -8,6 +8,7 @@ As of this writing (23 July 2022), most of the code is in `Python3`, though some
 As of 3 July 2022, a study guide has also made its way into the repo. This study guide is `LaTeX`'ed and is intended to help guide my studies + document the journey so far. **Update:** Later, I removed the `TeX` source code from the repo so that the code percentages would better reflect my _real_ contributions rather than showing a repo with 80% `TeX` code!
 
 ## TODO:
+ * Finish adding methods to the `Array` ADT in `C++`.
  * Get all the `Python` code translated in to `C++` (!!!) and `Java` (as time permits).
  * Translate `Array` ADT from `C++` to `Python` and `Java`.
  * Get study guide source re-added so I can work on it elsewhere.
