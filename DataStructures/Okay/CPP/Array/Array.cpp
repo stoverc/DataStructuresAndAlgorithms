@@ -12,13 +12,6 @@ Array<T>::Array(T* arr, int totalspace, int numelts){
     }
 }
 
-//template <typename T>
-//Array<T>::~Array(){
-//    A = nullptr;
-//    delete A;
-    //std::cout << "\n Destructor executed";
-//}
-
 template <typename T>
 void Array<T>::Display(){
     std::cout << "[";
@@ -47,7 +40,7 @@ void Array<T>::Append(T x){
 }
 
 template <typename T>
-void Array<T>::Insert(T x, int ind){
+void Array<T>::Insert(int ind, T x){
     if(ind >= 0 && ind < length){
         if(length < size){
             for(int i = length; i > ind; i--){
@@ -120,7 +113,7 @@ T Array<T>::Get(int ind){
 }
 
 template <typename T>
-void Array<T>::Set(T x, int ind){
+void Array<T>::Set(int ind, T x){
     if(ind >= 0 && ind < length){
         A[ind] = x;
     }
@@ -150,7 +143,7 @@ T Array<T>::Max(){
     int max = INT_MIN;
 
     for(int i = 0; i < length; i++){
-        if(max < A[i]){
+        if(A[i] > max){
             max = A[i];
         }
     }
@@ -163,12 +156,64 @@ T Array<T>::Min(){
     int min = INT_MAX;
 
     for(int i = 0; i < length; i++){
-        if(min > A[i]){
+        if(A[i] < min){
             min = A[i];
         }
     }
 
     return min;
+}
+
+template <typename T>
+void Array<T>::Reverse(){
+    T *B = new T[length];
+
+    for(int i = 0; i < length; i++){
+        B[i] = A[length-i-1];
+    }
+
+    for(int i = 0; i < length; i++){
+        A[i] = B[i];
+    }
+
+    delete B;
+}
+
+template <typename T>
+void Array<T>::LeftShift(){
+    for(int i = 1; i < length; i++){
+        A[i-1] = A[i];
+    }
+
+    length -= 1;
+}
+
+template <typename T>
+void Array<T>::LeftRotate(){
+    T temp = A[0];
+
+    LeftShift();
+    length += 1;
+    A[length-1] = temp;
+}
+
+template <typename T>
+void Array<T>::RightShift(){
+    for(int i = length-1; i > 0; i--){
+        A[i] = A[i-1];
+    }
+
+    A[0] = INT_MIN;
+    length += 1;
+}
+
+template <typename T>
+void Array<T>::RightRotate(){
+    T temp = A[length-1];
+
+    RightShift();
+    length -= 1;
+    A[0] = temp;
 }
 
 int main () {
@@ -184,7 +229,7 @@ int main () {
     arr.Append(25);
     arr.Display();
 
-    arr.Insert(212,4);
+    arr.Insert(4,212);
     arr.Display();
 
     arr.Delete(2);
@@ -196,7 +241,23 @@ int main () {
     arr.Display();
     std::cout << arr.Get(3) << " " << arr.Sum() << " " << arr.Avg() << " " << arr.Min() << " " << arr.Max() << std::endl;
 
-    arr.Set(99,3);
+    arr.Set(3,99);
     arr.Display();
     std::cout << arr.Get(3) << " " << arr.Sum() << " " << arr.Avg() << " " << arr.Min() << " " << arr.Max() << std::endl;
+
+    arr.Reverse();
+    arr.Display();
+
+    arr.LeftShift();
+    arr.Display();
+
+    arr.RightShift();
+    arr.Display();
+
+    arr.LeftRotate();
+    arr.Display();
+
+    arr2.Display();
+    arr2.RightRotate();
+    arr2.Display();
 }
