@@ -15,6 +15,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+ <h3>11 May 2023</h3>
+<ol>
+  <li>To Array ADT in <code>C++</code>: Added `Get`, `Set`, `Sum`, `Avg`, `Max`, and `Min`.</li>
+</ol> 
 <h3>10 May 2023</h3>
 <ol>
  <li>Later, fixed up some pointer-related things in Array ADT.</li>
