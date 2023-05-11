@@ -19,6 +19,12 @@ class Array
         void Delete(int ind);
         int LinearSearch(T x);
         int BinarySearch(T x);
+        T Get(int ind);
+        void Set(T x, int ind);
+        T Sum();
+        float Avg();
+        T Max();
+        T Min();
 };
 
 #endif

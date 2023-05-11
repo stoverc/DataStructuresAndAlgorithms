@@ -107,6 +107,69 @@ int Array<T>::BinarySearch(T x){
     return -1;
 }
 
+template <typename T>
+T Array<T>::Get(int ind){
+    if(ind >= 0 && ind < length){
+        return A[ind];
+    }
+    else{
+        std::cout << std::endl << "Array out of bounds." << std::endl;
+    }
+
+    return (T)INT_MIN;
+}
+
+template <typename T>
+void Array<T>::Set(T x, int ind){
+    if(ind >= 0 && ind < length){
+        A[ind] = x;
+    }
+    else{
+        std::cout << std::endl << "Array out of bounds." << std::endl;
+    }
+}
+
+template <typename T>
+T Array<T>::Sum(){
+    T sum = 0;
+
+    for(int i = 0; i < length; i++){
+        sum += A[i];
+    }
+
+    return sum;
+}
+
+template <typename T>
+float Array<T>::Avg(){
+    return (float)(this->Sum())/length;
+}
+
+template <typename T>
+T Array<T>::Max(){
+    int max = INT_MIN;
+
+    for(int i = 0; i < length; i++){
+        if(max < A[i]){
+            max = A[i];
+        }
+    }
+
+    return max;
+}
+
+template <typename T>
+T Array<T>::Min(){
+    int min = INT_MAX;
+
+    for(int i = 0; i < length; i++){
+        if(min > A[i]){
+            min = A[i];
+        }
+    }
+
+    return min;
+}
 
 int main () {
     int *init = new int[6]{2,4,6,8,10,12}; 
@@ -127,7 +190,13 @@ int main () {
     arr.Delete(2);
     arr.Display();
 
-    std::cout << arr.LinearSearch(8) << " " << arr.LinearSearch(61);
-    std::cout << std::endl;
-    std::cout << arr2.BinarySearch(8) << " " << arr2.BinarySearch(61);
+    std::cout << arr.LinearSearch(8) << " " << arr.LinearSearch(61) << std::endl;
+    std::cout << arr2.BinarySearch(8) << " " << arr2.BinarySearch(61) << std::endl;
+
+    arr.Display();
+    std::cout << arr.Get(3) << " " << arr.Sum() << " " << arr.Avg() << " " << arr.Min() << " " << arr.Max() << std::endl;
+
+    arr.Set(99,3);
+    arr.Display();
+    std::cout << arr.Get(3) << " " << arr.Sum() << " " << arr.Avg() << " " << arr.Min() << " " << arr.Max() << std::endl;
 }
