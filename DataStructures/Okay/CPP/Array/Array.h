@@ -4,14 +4,16 @@
 template <typename T>
 class Array
 {
-    T* A;
-    int size;
-    int length;
-
     private:
+        T* A;
+        int size;
+        int length;
 
     public:
         Array(T* arr, int arrsize, int arrlength);
+        T* GetArray();
+        int GetSize();
+        int GetLength();
 
         void Display();
         void Append(T x);
@@ -30,6 +32,9 @@ class Array
         void LeftRotate();
         void RightShift();
         void RightRotate();
+        void SortedInsert(T x);
+        bool IsSorted();
+        void PosNegSwap();
 };
 
 #endif

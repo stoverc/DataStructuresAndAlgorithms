@@ -13,6 +13,21 @@ Array<T>::Array(T* arr, int totalspace, int numelts){
 }
 
 template <typename T>
+T* Array<T>::GetArray(){
+    return this -> A;
+}
+
+template <typename T>
+int Array<T>::GetSize(){
+    return this -> size;
+}
+
+template <typename T>
+int Array<T>::GetLength(){
+    return this -> length;
+}
+
+template <typename T>
 void Array<T>::Display(){
     std::cout << "[";
 
@@ -109,7 +124,7 @@ T Array<T>::Get(int ind){
         std::cout << std::endl << "Array out of bounds." << std::endl;
     }
 
-    return (T)INT_MIN;
+    return INT_MIN;
 }
 
 template <typename T>
@@ -166,7 +181,7 @@ T Array<T>::Min(){
 
 template <typename T>
 void Array<T>::Reverse(){
-    T *B = new T[length];
+    T B[length];
 
     for(int i = 0; i < length; i++){
         B[i] = A[length-i-1];
@@ -176,7 +191,7 @@ void Array<T>::Reverse(){
         A[i] = B[i];
     }
 
-    delete B;
+    //delete B;
 }
 
 template <typename T>
@@ -214,6 +229,53 @@ void Array<T>::RightRotate(){
     RightShift();
     length -= 1;
     A[0] = temp;
+}
+
+template <typename T>
+void Array<T>::SortedInsert(T x){
+    int i = length - 1;
+
+    while(A[i] > x){
+        A[i+1]=A[i];
+        i--;
+    }
+
+    A[i+1] = x;
+
+    length += 1;
+}
+
+template <typename T>
+bool Array<T>::IsSorted(){
+    for(int i = 0; i < length-1; i++){
+        if(A[i] > A[i+1]){
+            return false;
+        }
+    }
+
+    return true;
+}
+
+template <typename T>
+void Array<T>::PosNegSwap(){
+    int i = 0, j = length - 1;
+    T temp;
+
+    while(i < j){
+        while(A[i] < 0){
+            i++;
+        }
+
+        while(A[j] >= 0){
+            j--;
+        }
+
+        if(i < j){
+            temp = A[i];
+            A[i] = A[j];
+            A[j] = temp;
+        }
+    }
 }
 
 int main () {
@@ -260,4 +322,25 @@ int main () {
     arr2.Display();
     arr2.RightRotate();
     arr2.Display();
+    arr2.LeftRotate();
+    arr2.Display();
+
+    arr2.SortedInsert(9);
+    arr2.Display();
+
+    arr.Display();
+    std::cout << std::boolalpha <<  arr.IsSorted() << std::endl;
+    arr2.Display();
+    std::cout << std::boolalpha << arr2.IsSorted() << std::endl;
+
+    int *init3 = new int[14]{-2,4,-6,8,-10,12,0,-25,212,-44,-99,23,17,7};
+    Array<int> arr3(init3,20,14);
+    arr3.Display();
+    arr3.PosNegSwap();
+    arr3.Display();
+
+    int *init4 = new int[5]{-2,14,98,200,3125};
+    Array<int> arr4(init4,20,5);
+    arr2.Display();
+    arr4.Display();
 }
