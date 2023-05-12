@@ -278,6 +278,44 @@ void Array<T>::PosNegSwap(){
     }
 }
 
+//======================================================
+//      NON-MEMBER FUNCTIONS BELOW
+//======================================================
+
+template <typename T>
+bool Contains(T arr[], int size, T x){
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == x) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+template <typename T>
+void Union(Array<T> arr1, Array<T> arr2){
+    T* a1 = arr1.GetArray();
+    T* a2 = arr2.GetArray();
+    T a3[arr1.GetSize() + arr2.GetSize()];
+
+    for(int i = 0; i < arr1.GetLength(); i++){
+        a3[i] = a1[i];
+    }
+
+    int k = arr1.GetLength();
+
+    for(int i = 0; i < arr2.GetLength(); i++){
+        if(!Contains(a3,sizeof(a3)/sizeof(int),a2[i])){
+            a3[k] = a2[i];
+            k += 1;
+        }
+    }
+
+    Array<T> arr3(a3,arr1.GetSize()+arr2.GetSize(),k);
+
+    arr3.Display();
+}
+
 int main () {
     int *init = new int[6]{2,4,6,8,10,12}; 
     int *init2 = new int[8]{2,4,6,8,10,12,25,212};
@@ -339,8 +377,13 @@ int main () {
     arr3.PosNegSwap();
     arr3.Display();
 
-    int *init4 = new int[5]{-2,14,98,200,3125};
-    Array<int> arr4(init4,20,5);
+    int *init4 = new int[10]{-2,2,14,98,200,300,400,500,600,3125};
+    Array<int> arr4(init4,20,10);
+    std::cout << std::endl << "This is arr2: " << std::endl;
     arr2.Display();
+    std::cout << "This is ar4: " << std::endl;
     arr4.Display();
+
+    std::cout << "This is the (unsorted) union of arr2 and arr4: " << std::endl;
+    Union(arr2,arr4);
 }
