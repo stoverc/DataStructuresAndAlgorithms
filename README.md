@@ -18,7 +18,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <summary><h2>Changelog</h2></summary>
 <h3>12 May 2023</h3>
 <ol>
-    <li>Made some small code tweaks to the Array ADT in <code>C++</code>, and later, added support for <code>Contains</code> and <code>(Unsorted) Unions</code>.</li>
+    <li>Made some small code tweaks to the Array ADT in <code>C++</code>, and later, added support for <code>Contains</code> and <code>(Unsorted) Union</code>.</li>
 </ol> 
 <h3>11 May 2023</h3>
 <ol>
