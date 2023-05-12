@@ -16,18 +16,22 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
- <h3>11 May 2023</h3>
+<h3>12 May 2023</h3>
 <ol>
-  <li>Later, improved incapsulation in Array ADT by making member vars private + adding getters.</li>
-  <li>Added functionality in Array ADT for <code>SortedInsert</code>, <code>IsSorted</code>, and <code>PosNegSwap</code>.</li>
-  <li>In Array ADT <code>C++</code> files: Added <code>Reverse</code>, <code>LeftShift</code>, <code>LeftRotate</code>, <code>RightShift</code>, <code>RightRotate</code>.</li>
-  <li>Later, rewrote some code in a clearer manner + deleted some commented-out code in <code>C++</code> Array ADT.</li>
-  <li>To Array ADT in <code>C++</code>: Added <code>Get</code>, <code>Set</code>, <code>Sum</code>, <code>Avg</code>, <code>Max</code>, and <code>Min</code>.</li>
+    <li>Made some small code tweaks to the Array ADT in <code>C++</code>, and later, added support for <code>Contains</code> and <code>(Unsorted) Unions</code>.</li>
+</ol> 
+<h3>11 May 2023</h3>
+<ol>
+    <li>Later, improved incapsulation in Array ADT by making member vars private + adding getters.</li>
+    <li>Added functionality in Array ADT for <code>SortedInsert</code>, <code>IsSorted</code>, and <code>PosNegSwap</code>.</li>
+    <li>In Array ADT <code>C++</code> files: Added <code>Reverse</code>, <code>LeftShift</code>, <code>LeftRotate</code>, <code>RightShift</code>, <code>RightRotate</code>.</li>
+    <li>Later, rewrote some code in a clearer manner + deleted some commented-out code in <code>C++</code> Array ADT.</li>
+    <li>To Array ADT in <code>C++</code>: Added <code>Get</code>, <code>Set</code>, <code>Sum</code>, <code>Avg</code>, <code>Max</code>, and <code>Min</code>.</li>
 </ol> 
 <h3>10 May 2023</h3>
-<ol>
- <li>Later, fixed up some pointer-related things in Array ADT.</li>
- <li>Committed initial version of Array ADT in <code>C++</code> (both <code>.cpp</code> and <code>.h</code> files).</li>
+<ol>    
+    <li>Later, fixed up some pointer-related things in Array ADT.</li>
+    <li>Committed initial version of Array ADT in <code>C++</code> (both <code>.cpp</code> and <code>.h</code> files).</li>
 </ol> 
 <h3>19 Aug 2022</h3>
 <ol>
