@@ -40,7 +40,7 @@ class Array
         bool IsSorted();
         void PosNegSwap();
 
-        Array<T>* Union2(Array<T> *arr1, Array<T> *arr2);
+        Array<T>* Union3(Array<T> *arr2);
 };
 
 #endif

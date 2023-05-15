@@ -444,11 +444,10 @@ void CartesianProduct(Array<T> arr1, Array<T> arr2){
 //======================================================
 template <typename T>
 Array<T>* Union2(Array<T> *arr1, Array<T> *arr2){
+    // Requires public "A"; otherwise, "A" can be private.
     T* a1 = (*arr1).GetArray();
     T* a2 = (*arr2).GetArray();
     T a3[(*arr1).GetSize() + (*arr2).GetSize()];
-    
-    std::cout << (*arr1).GetLength() << " " << (*arr2).GetLength() << std::endl;
 
     for(int i = 0; i < (*arr1).GetLength(); i++){
         a3[i] = a1[i];
@@ -464,6 +463,35 @@ Array<T>* Union2(Array<T> *arr1, Array<T> *arr2){
     }
 
     Array<T> *arr3 = new Array<T>((*arr1).GetSize() + (*arr2).GetSize(), k);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> A[i] = a3[i];
+    }
+
+    return arr3;
+}
+
+template <typename T>
+Array<T>* Array<T>::Union3(Array<T> *arr2){
+    // Requires public "A"; otherwise, "A" can be private.
+    T* a1 = A;
+    T* a2 = (*arr2).GetArray();
+    T a3[size + (*arr2).GetSize()];
+    
+    for(int i = 0; i < length; i++){
+        a3[i] = a1[i];
+    }
+
+    int k = length;
+
+    for(int i = 0; i < (*arr2).GetLength(); i++){
+        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
+            a3[k] = a2[i];
+            k += 1;
+        }
+    }
+
+    Array<T> *arr3 = new Array<T>(size + (*arr2).GetSize(), k);
 
     for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
         arr3 -> A[i] = a3[i];
@@ -556,8 +584,5 @@ int main () {
     Array<int> * arr5;
     arr5 = Union2(&arr2,&arr4);
     (*arr5).Display();
-    std::cout << (*arr5).GetLength() << std::endl;
-    for(int i = 0; i < (*arr5).GetLength(); i++){
-        std::cout << arr5 -> A[i] << " ";
-    }
+    (*(arr2.Union3(&arr4))).Display();
 }
