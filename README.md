@@ -16,6 +16,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+ <h3>15 May 2023</h3>
+<ol>
+    <li>In <code>C++</code> Array ADT: Added functionality for <code>Intersection</code> and <code>Complement</code>.</li>
+</ol> 
 <h3>12 May 2023</h3>
 <ol>
     <li>Made some small code tweaks to the Array ADT in <code>C++</code>, and later, added support for <code>Contains</code> and <code>(Unsorted) Union</code>.</li>
