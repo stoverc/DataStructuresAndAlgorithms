@@ -2,10 +2,31 @@
 #include "Array.h"
 
 template <typename T>
-Array<T>::Array(T* arr, int totalspace, int numelts){
+Array<T>::Array(){
+    size = 10;
+    length = 0;
+    A = new T[size];
+}
+
+template <typename T>
+Array<T>::Array(int arrsize){
+    size = arrsize;
+    length = 0;
+    A = new T[size];
+}
+
+template <typename T>
+Array<T>::Array(int arrsize, int arrlength){
+    size = arrsize;
+    length = arrlength;
+    A = new T[size];
+}
+
+template <typename T>
+Array<T>::Array(T* arr, int arrsize, int arrlength){
     A = arr;
-    size = totalspace;
-    length = numelts;
+    size = arrsize;
+    length = arrlength;
 
     for(int i = length; i < size; i++){
         A[i] = INT_MIN;
@@ -363,7 +384,7 @@ void Intersection(Array<T> arr1, Array<T> arr2){
         }
     }
 
-    Array<T> arr3(a3,std::max(arr1.GetSize(),arr2.GetSize()),k1);
+    Array<T> arr3(a3,std::min(arr1.GetSize(),arr2.GetSize()),k1);
 
     arr3.Display();
 }
@@ -386,6 +407,69 @@ void Complement(Array<T> arr1, Array<T> arr2){
     Array<T> arr3(a3,arr1.GetSize(),k1);
 
     arr3.Display();
+}
+
+template <typename T>
+void CartesianProduct(Array<T> arr1, Array<T> arr2){
+    T* a1 = arr1.GetArray();
+    T* a2 = arr2.GetArray();
+    T a3[arr1.GetSize() * arr2.GetSize()][2];
+
+    int k1 = 0;
+
+    for(int i = 0; i < arr1.GetLength(); i++){
+        for(int j = 0; j < arr2.GetLength(); j++){
+            a3[k1][0] = a1[i];
+            a3[k1][1] = a2[j];
+            k1++;
+        }
+    }
+
+    std::cout << "[";
+
+    for(int i = 0; i < arr1.GetLength()*arr2.GetLength(); i++){
+        if(i != arr1.GetLength()*arr2.GetLength()-1){
+            std::cout << "[" << a3[i][0] << "," << a3[i][1] << "],";
+        }
+        else{
+            std::cout << "[" << a3[i][0] << "," << a3[i][1] << "]";
+        }
+    }
+
+    std::cout << "]";
+}
+
+//======================================================
+//      SANDBOX
+//======================================================
+template <typename T>
+Array<T>* Union2(Array<T> *arr1, Array<T> *arr2){
+    T* a1 = (*arr1).GetArray();
+    T* a2 = (*arr2).GetArray();
+    T a3[(*arr1).GetSize() + (*arr2).GetSize()];
+    
+    std::cout << (*arr1).GetLength() << " " << (*arr2).GetLength() << std::endl;
+
+    for(int i = 0; i < (*arr1).GetLength(); i++){
+        a3[i] = a1[i];
+    }
+
+    int k = (*arr1).GetLength();
+
+    for(int i = 0; i < (*arr2).GetLength(); i++){
+        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
+            a3[k] = a2[i];
+            k += 1;
+        }
+    }
+
+    Array<T> *arr3 = new Array<T>((*arr1).GetSize() + (*arr2).GetSize(), k);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> A[i] = a3[i];
+    }
+
+    return arr3;
 }
 
 int main () {
@@ -465,4 +549,15 @@ int main () {
     Complement(arr2,arr4);
     std::cout << "The complement arr4-arr2: " << std::endl;
     Complement(arr4,arr2);
+    std::cout << "The Cartesian product arr2xarr4: " << std::endl;
+    CartesianProduct(arr2,arr4);
+    std::cout << std::endl;
+
+    Array<int> * arr5;
+    arr5 = Union2(&arr2,&arr4);
+    (*arr5).Display();
+    std::cout << (*arr5).GetLength() << std::endl;
+    for(int i = 0; i < (*arr5).GetLength(); i++){
+        std::cout << arr5 -> A[i] << " ";
+    }
 }

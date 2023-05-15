@@ -5,11 +5,15 @@ template <typename T>
 class Array
 {
     private:
-        T* A;
+        //T* A;
         int size;
         int length;
 
     public:
+        T* A;
+        Array();
+        Array(int arrsize);
+        Array(int arrsize, int arrlength);
         Array(T* arr, int arrsize, int arrlength);
         T* GetArray();
         int GetSize();
@@ -35,6 +39,8 @@ class Array
         void SortedInsert(T x);
         bool IsSorted();
         void PosNegSwap();
+
+        Array<T>* Union2(Array<T> *arr1, Array<T> *arr2);
 };
 
 #endif
