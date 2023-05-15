@@ -316,7 +316,7 @@ void Union(Array<T> arr1, Array<T> arr2){
 }
 
 template <typename T>
-void Intersection(Array<T> arr1, Array<T> arr2){
+void LegacyIntersection(Array<T> arr1, Array<T> arr2){
     T* a1 = arr1.GetArray();
     T* a2 = arr2.GetArray();
     T a3[arr1.GetSize() + arr2.GetSize()];
@@ -349,11 +349,30 @@ void Intersection(Array<T> arr1, Array<T> arr2){
 }
 
 template <typename T>
+void Intersection(Array<T> arr1, Array<T> arr2){
+    T* a1 = arr1.GetArray();
+    T* a2 = arr2.GetArray();
+    T a3[arr1.GetSize() + arr2.GetSize()];
+
+    int k1 = 0;
+
+    for(int i = 0; i < arr1.GetLength(); i++){
+        if(Contains(a2,arr2.GetLength(),a1[i])){
+            a3[k1] = a1[i];
+            k1 += 1;
+        }
+    }
+
+    Array<T> arr3(a3,std::max(arr1.GetSize(),arr2.GetSize()),k1);
+
+    arr3.Display();
+}
+
+template <typename T>
 void Complement(Array<T> arr1, Array<T> arr2){
     T* a1 = arr1.GetArray();
     T* a2 = arr2.GetArray();
     T a3[arr1.GetSize() + arr2.GetSize()];
-    T a4[arr1.GetSize() + arr2.GetSize()];
 
     int k1 = 0;
 
@@ -440,6 +459,7 @@ int main () {
     std::cout << "The (unsorted) union of arr2 and arr4: " << std::endl;
     Union(arr2,arr4);
     std::cout << "The intersection of arr2 and arr4: " << std::endl;
+    //LegacyIntersection(arr2,arr4);
     Intersection(arr2,arr4);
     std::cout << "The complement arr2-arr4: " << std::endl;
     Complement(arr2,arr4);
