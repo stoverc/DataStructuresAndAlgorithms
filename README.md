@@ -18,9 +18,9 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <summary><h2>Changelog</h2></summary>
  <h3>15 May 2023</h3>
 <ol>
-    <li>Eventually figured out a non-<code>Void</code> version of <code>Union</code> in <code>C++</code> Array ADT. This will be fleshed out more soon.</li>
-    <li>Later, simplified <code>Intersection</code> algorithm and changed the existing algorithm to <code>LegacyIntersection</code> for posterity.</li>
     <li>In <code>C++</code> Array ADT: Added functionality for <code>Intersection</code> and <code>Complement</code>.</li>
+    <li>Later, simplified <code>Intersection</code> algorithm and changed the existing algorithm to <code>LegacyIntersection</code> for posterity.</li>
+    <li>Eventually figured out a non-<code>Void</code> version of <code>Union</code> in <code>C++</code> Array ADT. This will be fleshed out more soon.</li>
 </ol> 
 <h3>12 May 2023</h3>
 <ol>
@@ -28,16 +28,16 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 </ol> 
 <h3>11 May 2023</h3>
 <ol>
-    <li>Later, improved incapsulation in Array ADT by making member vars private + adding getters.</li>
-    <li>Added functionality in Array ADT for <code>SortedInsert</code>, <code>IsSorted</code>, and <code>PosNegSwap</code>.</li>
-    <li>In Array ADT <code>C++</code> files: Added <code>Reverse</code>, <code>LeftShift</code>, <code>LeftRotate</code>, <code>RightShift</code>, <code>RightRotate</code>.</li>
-    <li>Later, rewrote some code in a clearer manner + deleted some commented-out code in <code>C++</code> Array ADT.</li>
     <li>To Array ADT in <code>C++</code>: Added <code>Get</code>, <code>Set</code>, <code>Sum</code>, <code>Avg</code>, <code>Max</code>, and <code>Min</code>.</li>
+    <li>Later, rewrote some code in a clearer manner + deleted some commented-out code in <code>C++</code> Array ADT.</li>
+    <li>In Array ADT <code>C++</code> files: Added <code>Reverse</code>, <code>LeftShift</code>, <code>LeftRotate</code>, <code>RightShift</code>, <code>RightRotate</code>.</li>
+    <li>Added functionality in Array ADT for <code>SortedInsert</code>, <code>IsSorted</code>, and <code>PosNegSwap</code>.</li>
+    <li>Later, improved incapsulation in Array ADT by making member vars private + adding getters.</li>
 </ol> 
 <h3>10 May 2023</h3>
 <ol>    
-    <li>Later, fixed up some pointer-related things in Array ADT.</li>
     <li>Committed initial version of Array ADT in <code>C++</code> (both <code>.cpp</code> and <code>.h</code> files).</li>
+    <li>Later, fixed up some pointer-related things in Array ADT.</li>
 </ol> 
 <h3>19 Aug 2022</h3>
 <ol>
