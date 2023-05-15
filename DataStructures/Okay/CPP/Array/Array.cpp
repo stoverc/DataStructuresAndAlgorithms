@@ -281,7 +281,6 @@ void Array<T>::PosNegSwap(){
 //======================================================
 //      NON-MEMBER FUNCTIONS BELOW
 //======================================================
-
 template <typename T>
 bool Contains(T arr[], int size, T x){
     for (int i = 0; i < size; i++) {
@@ -305,13 +304,67 @@ void Union(Array<T> arr1, Array<T> arr2){
     int k = arr1.GetLength();
 
     for(int i = 0; i < arr2.GetLength(); i++){
-        if(!Contains(a3,sizeof(a3)/sizeof(int),a2[i])){
+        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
             a3[k] = a2[i];
             k += 1;
         }
     }
 
     Array<T> arr3(a3,arr1.GetSize()+arr2.GetSize(),k);
+
+    arr3.Display();
+}
+
+template <typename T>
+void Intersection(Array<T> arr1, Array<T> arr2){
+    T* a1 = arr1.GetArray();
+    T* a2 = arr2.GetArray();
+    T a3[arr1.GetSize() + arr2.GetSize()];
+    T a4[arr1.GetSize() + arr2.GetSize()];
+
+    for(int i = 0; i < arr1.GetLength(); i++){
+        a3[i] = a1[i];
+    }
+
+    int k1 = arr1.GetLength();
+    int k2 = 0;
+
+    for(int i = 0; i < arr2.GetLength(); i++){
+        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
+            a3[k1] = a2[i];
+            k1 += 1;
+        }
+    }
+
+    for(int i = 0; i < k1; i++){
+        if(Contains(a1,arr1.GetLength(),a3[i]) && Contains(a2,arr2.GetLength(),a3[i])){
+            a4[k2]=a3[i];
+            k2++;
+        }
+    }
+
+    Array<T> arr3(a4,std::max(arr1.GetSize(),arr2.GetSize()),k2);
+
+    arr3.Display();
+}
+
+template <typename T>
+void Complement(Array<T> arr1, Array<T> arr2){
+    T* a1 = arr1.GetArray();
+    T* a2 = arr2.GetArray();
+    T a3[arr1.GetSize() + arr2.GetSize()];
+    T a4[arr1.GetSize() + arr2.GetSize()];
+
+    int k1 = 0;
+
+    for(int i = 0; i < arr1.GetLength(); i++){
+        if(!Contains(a2,arr2.GetLength(),a1[i])){
+            a3[k1] = a1[i];
+            k1 += 1;
+        }
+    }
+
+    Array<T> arr3(a3,arr1.GetSize(),k1);
 
     arr3.Display();
 }
@@ -377,13 +430,19 @@ int main () {
     arr3.PosNegSwap();
     arr3.Display();
 
-    int *init4 = new int[10]{-2,2,14,98,200,300,400,500,600,3125};
+    int *init4 = new int[10]{-2,2,4,9,212,300,400,500,600,3125};
     Array<int> arr4(init4,20,10);
     std::cout << std::endl << "This is arr2: " << std::endl;
     arr2.Display();
-    std::cout << "This is ar4: " << std::endl;
+    std::cout << "This is arr4: " << std::endl;
     arr4.Display();
 
-    std::cout << "This is the (unsorted) union of arr2 and arr4: " << std::endl;
+    std::cout << "The (unsorted) union of arr2 and arr4: " << std::endl;
     Union(arr2,arr4);
+    std::cout << "The intersection of arr2 and arr4: " << std::endl;
+    Intersection(arr2,arr4);
+    std::cout << "The complement arr2-arr4: " << std::endl;
+    Complement(arr2,arr4);
+    std::cout << "The complement arr4-arr2: " << std::endl;
+    Complement(arr4,arr2);
 }
