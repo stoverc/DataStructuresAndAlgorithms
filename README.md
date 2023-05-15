@@ -21,6 +21,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>In <code>C++</code> Array ADT: Added functionality for <code>Intersection</code> and <code>Complement</code>.</li>
     <li>Later, simplified <code>Intersection</code> algorithm and changed the existing algorithm to <code>LegacyIntersection</code> for posterity.</li>
     <li>Eventually figured out a non-<code>Void</code> version of <code>Union</code> in <code>C++</code> Array ADT. This will be fleshed out more soon.</li>
+    <li>Mimicked non-member <code>Union2</code> code into member function <code>Union3</code>.</li>
 </ol> 
 <h3>12 May 2023</h3>
 <ol>
