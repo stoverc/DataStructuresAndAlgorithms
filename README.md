@@ -16,7 +16,14 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
- <h3>15 May 2023</h3>
+<h3>16 May 2023</h3>
+<ol>
+    <li>In <code>C++</code> Array ADT: Added Setters, in part to allow the <code>public</code> <code>T* A</code> to become private.</li>
+    <li>Later, declared <code>Union2</code> as a <code>friend</code> function to allow access to private member variables.</li>
+    <li>Added better commenting to show the breakdown of functions throughout code.</li>
+</ol> 
+
+<h3>15 May 2023</h3>
 <ol>
     <li>In <code>C++</code> Array ADT: Added functionality for <code>Intersection</code> and <code>Complement</code>.</li>
     <li>Later, simplified <code>Intersection</code> algorithm and changed the existing algorithm to <code>LegacyIntersection</code> for posterity.</li>
