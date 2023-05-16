@@ -75,6 +75,19 @@ void Array<T>::SetLength(int arrlength){
 }
 
 //======================================================
+//      NEEDED LATER
+//======================================================
+template <typename T>
+bool Contains(T arr[], int size, T x){
+    for (int i = 0; i < size; i++) {
+        if (arr[i] == x) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+//======================================================
 //      MEMBER FUNCTIONS
 //======================================================
 template <typename T>
@@ -331,7 +344,7 @@ void Array<T>::PosNegSwap(){
 template <typename T>
 Array<T>* Array<T>::Union(Array<T> *arr2){
     T* a1 = A;
-    T* a2 = arr2 -> A;
+    T* a2 = arr2 -> GetArray();
     T a3[size + arr2 -> GetSize()];
     
     for(int i = 0; i < length; i++){
@@ -350,7 +363,55 @@ Array<T>* Array<T>::Union(Array<T> *arr2){
     Array<T> *arr3 = new Array<T>(size + arr2 -> GetSize(), k);
 
     for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
-        arr3 -> A[i] = a3[i];
+        arr3 -> SetArray(i,a3[i]);
+    }
+
+    return arr3;
+}
+
+template <typename T>
+Array<T>* Array<T>::Intersection(Array<T> *arr2){
+    T* a1 = A;
+    T* a2 = arr2 -> GetArray();
+    T a3[size + arr2 -> GetSize()];
+
+    int k1 = 0;
+
+    for(int i = 0; i < length; i++){
+        if(Contains(a2,arr2 -> GetLength(),a1[i])){
+            a3[k1] = a1[i];
+            k1 += 1;
+        }
+    }
+
+    Array<T> *arr3 = new Array<T>(std::min(size,arr2 -> GetSize()),k1);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> SetArray(i,a3[i]);
+    }
+
+    return arr3;
+}
+
+template <typename T>
+Array<T>* Array<T>::Complement(Array<T> *arr2){
+    T* a1 = A;
+    T* a2 = arr2 -> GetArray();
+    T a3[size + arr2 -> GetSize()];
+
+    int k1 = 0;
+
+    for(int i = 0; i < length; i++){
+        if(!Contains(a2,arr2 -> GetLength(),a1[i])){
+            a3[k1] = a1[i];
+            k1 += 1;
+        }
+    }
+
+    Array<T> *arr3 = new Array<T>(size,k1);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> SetArray(i,a3[i]);
     }
 
     return arr3;
@@ -360,15 +421,84 @@ Array<T>* Array<T>::Union(Array<T> *arr2){
 //      NON-MEMBER FUNCTIONS
 //======================================================
 template <typename T>
-bool Contains(T arr[], int size, T x){
-    for (int i = 0; i < size; i++) {
-        if (arr[i] == x) {
-            return 1;
+Array<T>* Union(Array<T> *arr1, Array<T> *arr2){
+    T* a1 = arr1 -> GetArray();
+    T* a2 = arr2 -> GetArray();
+    T a3[arr1 -> GetSize() + arr2 -> GetSize()];
+
+    for(int i = 0; i < arr1 -> GetLength(); i++){
+        a3[i] = a1[i];
+    }
+
+    int k = arr1 -> GetLength();
+
+    for(int i = 0; i < arr2 -> GetLength(); i++){
+        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
+            a3[k] = a2[i];
+            k += 1;
         }
     }
-    return 0;
+
+    Array<T> *arr3 = new Array<T>(arr1 -> GetSize() + arr2 -> GetSize(), k);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> SetArray(i,a3[i]);
+    }
+
+    return arr3;
 }
 
+template <typename T>
+Array<T>* Intersection(Array<T> *arr1, Array<T> *arr2){
+    T* a1 = arr1 -> GetArray();
+    T* a2 = arr2 -> GetArray();
+    T a3[arr1 -> GetSize() + arr2 -> GetSize()];
+
+    int k1 = 0;
+
+    for(int i = 0; i < arr1 -> GetLength(); i++){
+        if(Contains(a2,arr2 -> GetLength(),a1[i])){
+            a3[k1] = a1[i];
+            k1 += 1;
+        }
+    }
+
+    Array<T> *arr3 = new Array<T>(std::min(arr1 -> GetSize(),arr2 -> GetSize()),k1);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> SetArray(i,a3[i]);
+    }
+
+    return arr3;
+}
+
+template <typename T>
+Array<T>* Complement(Array<T> *arr1, Array<T> *arr2){
+    T* a1 = arr1 -> GetArray();
+    T* a2 = arr2 -> GetArray();
+    T a3[arr1 -> GetSize() + arr2 -> GetSize()];
+
+    int k1 = 0;
+
+    for(int i = 0; i < arr1 -> GetLength(); i++){
+        if(!Contains(a2,arr2 -> GetLength(),a1[i])){
+            a3[k1] = a1[i];
+            k1 += 1;
+        }
+    }
+
+    Array<T> *arr3 = new Array<T>((*arr1).GetSize(),k1);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> SetArray(i,a3[i]);
+    }
+
+    return arr3;
+}
+
+//======================================================
+//      SANDBOX
+//======================================================
 template <typename T>
 void CartesianProduct(Array<T> arr1, Array<T> arr2){
     T* a1 = arr1.GetArray();
@@ -397,85 +527,6 @@ void CartesianProduct(Array<T> arr1, Array<T> arr2){
     }
 
     std::cout << "]";
-}
-
-//======================================================
-//      SANDBOX
-//======================================================
-template <typename T>
-Array<T>* Union(Array<T> *arr1, Array<T> *arr2){
-    T* a1 = (*arr1).GetArray();
-    T* a2 = (*arr2).GetArray();
-    T a3[(*arr1).GetSize() + (*arr2).GetSize()];
-
-    for(int i = 0; i < (*arr1).GetLength(); i++){
-        a3[i] = a1[i];
-    }
-
-    int k = (*arr1).GetLength();
-
-    for(int i = 0; i < (*arr2).GetLength(); i++){
-        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
-            a3[k] = a2[i];
-            k += 1;
-        }
-    }
-
-    Array<T> *arr3 = new Array<T>((*arr1).GetSize() + (*arr2).GetSize(), k);
-
-    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
-        arr3 -> SetArray(i,a3[i]);
-    }
-
-    return arr3;
-}
-
-template <typename T>
-Array<T>* Intersection(Array<T> *arr1, Array<T> *arr2){
-    T* a1 = (*arr1).GetArray();
-    T* a2 = (*arr2).GetArray();
-    T a3[(*arr1).GetSize() + (*arr2).GetSize()];
-
-    int k1 = 0;
-
-    for(int i = 0; i < (*arr1).GetLength(); i++){
-        if(Contains(a2,(*arr2).GetLength(),a1[i])){
-            a3[k1] = a1[i];
-            k1 += 1;
-        }
-    }
-
-    Array<T> *arr3 = new Array<T>(std::min((*arr1).GetSize(),(*arr2).GetSize()),k1);
-
-    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
-        arr3 -> SetArray(i,a3[i]);
-    }
-
-    return arr3;
-}
-
-template <typename T>
-Array<T>* Complement(Array<T> *arr1, Array<T> *arr2){
-    T* a1 = (*arr1).GetArray();
-    T* a2 = (*arr2).GetArray();
-    T a3[(*arr1).GetSize() + (*arr2).GetSize()];
-
-    int k1 = 0;
-
-    for(int i = 0; i < (*arr1).GetLength(); i++){
-        if(!Contains(a2,(*arr2).GetLength(),a1[i])){
-            a3[k1] = a1[i];
-            k1 += 1;
-        }
-    }
-
-    Array<T> *arr3 = new Array<T>((*arr1).GetSize(),k1);
-
-    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
-        arr3 -> SetArray(i,a3[i]);
-    }
-
-    return arr3;
 }
 
 //======================================================
@@ -551,12 +602,21 @@ int main () {
 
     std::cout << "The (unsorted) union of arr2 and arr4: " << std::endl;
     (*(Union(&arr2,&arr4))).Display();
+    (*(arr2.Union(&arr4))).Display();
+
     std::cout << "The intersection of arr2 and arr4: " << std::endl;
     (*(Intersection(&arr2,&arr4))).Display();
+    (*(arr2.Intersection(&arr4))).Display();
+
     std::cout << "The complement arr2-arr4: " << std::endl;
     (*(Complement(&arr2,&arr4))).Display();
+    (*(arr2.Complement(&arr4))).Display();
+
     std::cout << "The complement arr4-arr2: " << std::endl;
     (*(Complement(&arr4,&arr2))).Display();
+    (*(arr4.Complement(&arr2))).Display();
+
+
     //std::cout << "The Cartesian product arr2xarr4: " << std::endl;
     //CartesianProduct(arr2,arr4);
     //std::cout << std::endl;
