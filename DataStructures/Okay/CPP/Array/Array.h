@@ -2,15 +2,20 @@
 #define Array_H
 
 template <typename T>
+class Array;
+
+template <typename T>
+Array<T>* Union2(Array<T> *arr1, Array<T> *arr2);
+
+template <typename T>
 class Array
 {
     private:
-        //T* A;
+        T* A;
         int size;
         int length;
 
     public:
-        T* A;
         Array();
         Array(int arrsize);
         Array(int arrsize, int arrlength);
@@ -18,6 +23,9 @@ class Array
         T* GetArray();
         int GetSize();
         int GetLength();
+        void SetArray(int ind, T x);
+        void SetSize(int arrsize);
+        void SetLength(int arrlength);
 
         void Display();
         void Append(T x);
@@ -39,8 +47,12 @@ class Array
         void SortedInsert(T x);
         bool IsSorted();
         void PosNegSwap();
-
         Array<T>* Union3(Array<T> *arr2);
+
+        //======================================================
+        //      FRIEND FUNCTIONS
+        //======================================================
+        template<T> friend Array<T>* Union2(Array<T> *arr1, Array<T> *arr2);
 };
 
 #endif

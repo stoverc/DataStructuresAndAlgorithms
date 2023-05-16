@@ -1,6 +1,9 @@
 #include <iostream>
 #include "Array.h"
 
+//======================================================
+//      CONSTRUCTORS
+//======================================================
 template <typename T>
 Array<T>::Array(){
     size = 10;
@@ -33,6 +36,9 @@ Array<T>::Array(T* arr, int arrsize, int arrlength){
     }
 }
 
+//======================================================
+//      GETTERS
+//======================================================
 template <typename T>
 T* Array<T>::GetArray(){
     return this -> A;
@@ -48,6 +54,29 @@ int Array<T>::GetLength(){
     return this -> length;
 }
 
+//======================================================
+//      SETTERS
+//======================================================
+template <typename T>
+void Array<T>::SetArray(int ind, T x){
+    if(0 <= ind && ind <= size){
+        A[ind] = x;
+    }
+}
+
+template <typename T>
+void Array<T>::SetSize(int arrsize){
+    size = arrsize;
+}
+
+template <typename T>
+void Array<T>::SetLength(int arrlength){
+    length = arrlength;
+}
+
+//======================================================
+//      MEMBER FUNCTIONS
+//======================================================
 template <typename T>
 void Array<T>::Display(){
     std::cout << "[";
@@ -300,7 +329,7 @@ void Array<T>::PosNegSwap(){
 }
 
 //======================================================
-//      NON-MEMBER FUNCTIONS BELOW
+//      NON-MEMBER FUNCTIONS
 //======================================================
 template <typename T>
 bool Contains(T arr[], int size, T x){
@@ -444,7 +473,6 @@ void CartesianProduct(Array<T> arr1, Array<T> arr2){
 //======================================================
 template <typename T>
 Array<T>* Union2(Array<T> *arr1, Array<T> *arr2){
-    // Requires public "A"; otherwise, "A" can be private.
     T* a1 = (*arr1).GetArray();
     T* a2 = (*arr2).GetArray();
     T a3[(*arr1).GetSize() + (*arr2).GetSize()];
@@ -465,7 +493,7 @@ Array<T>* Union2(Array<T> *arr1, Array<T> *arr2){
     Array<T> *arr3 = new Array<T>((*arr1).GetSize() + (*arr2).GetSize(), k);
 
     for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
-        arr3 -> A[i] = a3[i];
+        arr3 -> SetArray(i,a3[i]);
     }
 
     return arr3;
@@ -473,10 +501,9 @@ Array<T>* Union2(Array<T> *arr1, Array<T> *arr2){
 
 template <typename T>
 Array<T>* Array<T>::Union3(Array<T> *arr2){
-    // Requires public "A"; otherwise, "A" can be private.
     T* a1 = A;
-    T* a2 = (*arr2).GetArray();
-    T a3[size + (*arr2).GetSize()];
+    T* a2 = arr2 -> A;
+    T a3[size + arr2 -> GetSize()];
     
     for(int i = 0; i < length; i++){
         a3[i] = a1[i];
@@ -484,14 +511,14 @@ Array<T>* Array<T>::Union3(Array<T> *arr2){
 
     int k = length;
 
-    for(int i = 0; i < (*arr2).GetLength(); i++){
+    for(int i = 0; i < arr2 -> GetLength(); i++){
         if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
             a3[k] = a2[i];
             k += 1;
         }
     }
 
-    Array<T> *arr3 = new Array<T>(size + (*arr2).GetSize(), k);
+    Array<T> *arr3 = new Array<T>(size + arr2 -> GetSize(), k);
 
     for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
         arr3 -> A[i] = a3[i];
@@ -500,6 +527,9 @@ Array<T>* Array<T>::Union3(Array<T> *arr2){
     return arr3;
 }
 
+//======================================================
+//      MAIN
+//======================================================
 int main () {
     int *init = new int[6]{2,4,6,8,10,12}; 
     int *init2 = new int[8]{2,4,6,8,10,12,25,212};
@@ -581,8 +611,6 @@ int main () {
     CartesianProduct(arr2,arr4);
     std::cout << std::endl;
 
-    Array<int> * arr5;
-    arr5 = Union2(&arr2,&arr4);
-    (*arr5).Display();
+    (*(Union2(&arr2,&arr4))).Display();
     (*(arr2.Union3(&arr4))).Display();
 }
