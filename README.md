@@ -21,7 +21,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>In <code>C++</code> Array ADT: Added Setters, in part to allow the <code>public</code> <code>T* A</code> to become private.</li>
     <li>Later, declared <code>Union2</code> as a <code>friend</code> function to allow access to private member variables.</li>
     <li>Added better commenting to show the breakdown of functions throughout code.</li>
-    <li>Later, moved legacy functions to <code>ArrayLegacy.cpp</code>.</li>
+    <li>Later, moved legacy functions to <code>ArrayLegacy.cpp</code> and renamed <code>Union2</code> and <code>Union3</code> both as <code>Union</code>.</li>
     <li>Also: Implemented <code>friend</code> versions of <code>Intersection</code> and <code>Complement</code>.</li>
     <li>Later still: Changed a number of dereferencing operations to <code>-></code>s.</li>
     <li>Also, added <code>Intersection</code>, <code>Complement</code> member functions.</li>
