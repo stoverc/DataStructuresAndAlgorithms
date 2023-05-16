@@ -328,6 +328,34 @@ void Array<T>::PosNegSwap(){
     }
 }
 
+template <typename T>
+Array<T>* Array<T>::Union(Array<T> *arr2){
+    T* a1 = A;
+    T* a2 = arr2 -> A;
+    T a3[size + arr2 -> GetSize()];
+    
+    for(int i = 0; i < length; i++){
+        a3[i] = a1[i];
+    }
+
+    int k = length;
+
+    for(int i = 0; i < arr2 -> GetLength(); i++){
+        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
+            a3[k] = a2[i];
+            k += 1;
+        }
+    }
+
+    Array<T> *arr3 = new Array<T>(size + arr2 -> GetSize(), k);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> A[i] = a3[i];
+    }
+
+    return arr3;
+}
+
 //======================================================
 //      NON-MEMBER FUNCTIONS
 //======================================================
@@ -339,103 +367,6 @@ bool Contains(T arr[], int size, T x){
         }
     }
     return 0;
-}
-
-template <typename T>
-void Union(Array<T> arr1, Array<T> arr2){
-    T* a1 = arr1.GetArray();
-    T* a2 = arr2.GetArray();
-    T a3[arr1.GetSize() + arr2.GetSize()];
-
-    for(int i = 0; i < arr1.GetLength(); i++){
-        a3[i] = a1[i];
-    }
-
-    int k = arr1.GetLength();
-
-    for(int i = 0; i < arr2.GetLength(); i++){
-        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
-            a3[k] = a2[i];
-            k += 1;
-        }
-    }
-
-    Array<T> arr3(a3,arr1.GetSize()+arr2.GetSize(),k);
-
-    arr3.Display();
-}
-
-template <typename T>
-void LegacyIntersection(Array<T> arr1, Array<T> arr2){
-    T* a1 = arr1.GetArray();
-    T* a2 = arr2.GetArray();
-    T a3[arr1.GetSize() + arr2.GetSize()];
-    T a4[arr1.GetSize() + arr2.GetSize()];
-
-    for(int i = 0; i < arr1.GetLength(); i++){
-        a3[i] = a1[i];
-    }
-
-    int k1 = arr1.GetLength();
-    int k2 = 0;
-
-    for(int i = 0; i < arr2.GetLength(); i++){
-        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
-            a3[k1] = a2[i];
-            k1 += 1;
-        }
-    }
-
-    for(int i = 0; i < k1; i++){
-        if(Contains(a1,arr1.GetLength(),a3[i]) && Contains(a2,arr2.GetLength(),a3[i])){
-            a4[k2]=a3[i];
-            k2++;
-        }
-    }
-
-    Array<T> arr3(a4,std::max(arr1.GetSize(),arr2.GetSize()),k2);
-
-    arr3.Display();
-}
-
-template <typename T>
-void Intersection(Array<T> arr1, Array<T> arr2){
-    T* a1 = arr1.GetArray();
-    T* a2 = arr2.GetArray();
-    T a3[arr1.GetSize() + arr2.GetSize()];
-
-    int k1 = 0;
-
-    for(int i = 0; i < arr1.GetLength(); i++){
-        if(Contains(a2,arr2.GetLength(),a1[i])){
-            a3[k1] = a1[i];
-            k1 += 1;
-        }
-    }
-
-    Array<T> arr3(a3,std::min(arr1.GetSize(),arr2.GetSize()),k1);
-
-    arr3.Display();
-}
-
-template <typename T>
-void Complement(Array<T> arr1, Array<T> arr2){
-    T* a1 = arr1.GetArray();
-    T* a2 = arr2.GetArray();
-    T a3[arr1.GetSize() + arr2.GetSize()];
-
-    int k1 = 0;
-
-    for(int i = 0; i < arr1.GetLength(); i++){
-        if(!Contains(a2,arr2.GetLength(),a1[i])){
-            a3[k1] = a1[i];
-            k1 += 1;
-        }
-    }
-
-    Array<T> arr3(a3,arr1.GetSize(),k1);
-
-    arr3.Display();
 }
 
 template <typename T>
@@ -472,7 +403,7 @@ void CartesianProduct(Array<T> arr1, Array<T> arr2){
 //      SANDBOX
 //======================================================
 template <typename T>
-Array<T>* Union2(Array<T> *arr1, Array<T> *arr2){
+Array<T>* Union(Array<T> *arr1, Array<T> *arr2){
     T* a1 = (*arr1).GetArray();
     T* a2 = (*arr2).GetArray();
     T a3[(*arr1).GetSize() + (*arr2).GetSize()];
@@ -500,28 +431,48 @@ Array<T>* Union2(Array<T> *arr1, Array<T> *arr2){
 }
 
 template <typename T>
-Array<T>* Array<T>::Union3(Array<T> *arr2){
-    T* a1 = A;
-    T* a2 = arr2 -> A;
-    T a3[size + arr2 -> GetSize()];
-    
-    for(int i = 0; i < length; i++){
-        a3[i] = a1[i];
-    }
+Array<T>* Intersection(Array<T> *arr1, Array<T> *arr2){
+    T* a1 = (*arr1).GetArray();
+    T* a2 = (*arr2).GetArray();
+    T a3[(*arr1).GetSize() + (*arr2).GetSize()];
 
-    int k = length;
+    int k1 = 0;
 
-    for(int i = 0; i < arr2 -> GetLength(); i++){
-        if(!Contains(a3,sizeof(a3)/sizeof(T),a2[i])){
-            a3[k] = a2[i];
-            k += 1;
+    for(int i = 0; i < (*arr1).GetLength(); i++){
+        if(Contains(a2,(*arr2).GetLength(),a1[i])){
+            a3[k1] = a1[i];
+            k1 += 1;
         }
     }
 
-    Array<T> *arr3 = new Array<T>(size + arr2 -> GetSize(), k);
+    Array<T> *arr3 = new Array<T>(std::min((*arr1).GetSize(),(*arr2).GetSize()),k1);
 
     for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
-        arr3 -> A[i] = a3[i];
+        arr3 -> SetArray(i,a3[i]);
+    }
+
+    return arr3;
+}
+
+template <typename T>
+Array<T>* Complement(Array<T> *arr1, Array<T> *arr2){
+    T* a1 = (*arr1).GetArray();
+    T* a2 = (*arr2).GetArray();
+    T a3[(*arr1).GetSize() + (*arr2).GetSize()];
+
+    int k1 = 0;
+
+    for(int i = 0; i < (*arr1).GetLength(); i++){
+        if(!Contains(a2,(*arr2).GetLength(),a1[i])){
+            a3[k1] = a1[i];
+            k1 += 1;
+        }
+    }
+
+    Array<T> *arr3 = new Array<T>((*arr1).GetSize(),k1);
+
+    for(int i = 0; i < sizeof(a3)/sizeof(T); i++){
+        arr3 -> SetArray(i,a3[i]);
     }
 
     return arr3;
@@ -599,18 +550,17 @@ int main () {
     arr4.Display();
 
     std::cout << "The (unsorted) union of arr2 and arr4: " << std::endl;
-    Union(arr2,arr4);
+    (*(Union(&arr2,&arr4))).Display();
     std::cout << "The intersection of arr2 and arr4: " << std::endl;
-    //LegacyIntersection(arr2,arr4);
-    Intersection(arr2,arr4);
+    (*(Intersection(&arr2,&arr4))).Display();
     std::cout << "The complement arr2-arr4: " << std::endl;
-    Complement(arr2,arr4);
+    (*(Complement(&arr2,&arr4))).Display();
     std::cout << "The complement arr4-arr2: " << std::endl;
-    Complement(arr4,arr2);
-    std::cout << "The Cartesian product arr2xarr4: " << std::endl;
-    CartesianProduct(arr2,arr4);
-    std::cout << std::endl;
+    (*(Complement(&arr4,&arr2))).Display();
+    //std::cout << "The Cartesian product arr2xarr4: " << std::endl;
+    //CartesianProduct(arr2,arr4);
+    //std::cout << std::endl;
 
-    (*(Union2(&arr2,&arr4))).Display();
-    (*(arr2.Union3(&arr4))).Display();
+    //(*(Union(&arr2,&arr4))).Display();
+    //(*(arr2.Union(&arr4))).Display();
 }

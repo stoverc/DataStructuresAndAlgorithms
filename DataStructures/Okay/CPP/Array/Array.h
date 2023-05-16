@@ -5,7 +5,13 @@ template <typename T>
 class Array;
 
 template <typename T>
-Array<T>* Union2(Array<T> *arr1, Array<T> *arr2);
+Array<T>* Union(Array<T> *arr1, Array<T> *arr2);
+
+template <typename T>
+Array<T>* Intersection(Array<T> *arr1, Array<T> *arr2);
+
+template <typename T>
+Array<T>* Complement(Array<T> *arr1, Array<T> *arr2);
 
 template <typename T>
 class Array
@@ -47,12 +53,17 @@ class Array
         void SortedInsert(T x);
         bool IsSorted();
         void PosNegSwap();
-        Array<T>* Union3(Array<T> *arr2);
+        Array<T>* Union(Array<T> *arr2);
+        Array<T>* Intersection(Array<T> *arr2);
+        Array<T>* Complement(Array<T> *arr2);
 
         //======================================================
         //      FRIEND FUNCTIONS
         //======================================================
-        template<T> friend Array<T>* Union2(Array<T> *arr1, Array<T> *arr2);
+        template<T> friend Array<T>* Union(Array<T> *arr1, Array<T> *arr2);
+        template<T> friend Array<T>* Intersection(Array<T> *arr1, Array<T> *arr2);
+        template<T> friend Array<T>* Complement(Array<T> *arr1, Array<T> *arr2);
+
 };
 
 #endif
