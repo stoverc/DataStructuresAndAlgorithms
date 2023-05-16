@@ -23,6 +23,8 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>Added better commenting to show the breakdown of functions throughout code.</li>
     <li>Later, moved legacy functions to <code>ArrayLegacy.cpp</code>.</li>
     <li>Also: Implemented <code>friend</code> versions of <code>Intersection</code> and <code>Complement</code>.</li>
+    <li>Later still: Changed a number of dereferencing operations to <code>-></code>s.</li>
+    <li>Also, added <code>Intersection</code>, <code>Complement</code> member functions.</li>
 </ol> 
 
 <h3>15 May 2023</h3>
