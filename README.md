@@ -20,6 +20,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <ol>
     <li>Added destructor to Array ADT in <code>C++</code>.</li>
     <li>Created <code>CPP/Matrices</code> directory + added initial commit of <code>DiagonalMatrix</code> files (<code>.cpp</code> and <code>.h</code>).</li>
+    <li>Later, created <code>C++</code> files <code>LowerTriangularMatrix.h</code> and <code>LowerTriangularMatrix.cpp</code>.</li>
 </ol>
 <h3>16 May 2023</h3>
 <ol>
