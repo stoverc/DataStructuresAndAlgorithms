@@ -22,6 +22,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>Created <code>CPP/Matrices</code> directory + added initial commit of <code>DiagonalMatrix</code> files (<code>.cpp</code> and <code>.h</code>).</li>
     <li>Later, created <code>C++</code> files <code>LowerTriangularMatrix.h</code> and <code>LowerTriangularMatrix.cpp</code> using row-major mapping.</li>
     <li>Improved commenting in <code>Array.h</code>, <code>DiagonalMatrix.cpp</code>, and <code>LowerTriangularMatrix.cpp</code>.
+    <li>Added a driver to <code>LowerTriangularMatrix.cpp</code> to allow for entering a whole matrix all at once.</li>
 </ol>
 <h3>16 May 2023</h3>
 <ol>
