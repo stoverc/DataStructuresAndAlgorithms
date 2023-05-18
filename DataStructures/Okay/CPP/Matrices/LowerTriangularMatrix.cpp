@@ -107,5 +107,23 @@ int main(){
     m.ShortPrint();
     m.FullPrint();
 
-    std::cout << m.Get(2,2);
+    std::cout << m.Get(2,2) << std::endl;
+
+    int n, x;
+
+    std::cout << std::endl << "Enter dimension: ";
+    std::cin >> n;
+
+    LowerTriangularMatrix<int> m2(n);
+    m2.ShortPrint();
+
+    std::cout << std::endl << "Enter all elements: " << std::endl;
+    for(int i = 1; i <= n; i++){
+        for(int j = 1; j <= n; j++){
+            std::cin >> x;
+            m2.Set(i,j,x);
+        }
+    }
+
+    m2.FullPrint();
 }
