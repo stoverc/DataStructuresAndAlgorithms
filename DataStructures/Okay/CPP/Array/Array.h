@@ -26,6 +26,7 @@ class Array
         Array(int arrsize);
         Array(int arrsize, int arrlength);
         Array(T* arr, int arrsize, int arrlength);
+        ~Array();
         T* GetArray();
         int GetSize();
         int GetLength();

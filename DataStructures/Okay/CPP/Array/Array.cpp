@@ -37,6 +37,14 @@ Array<T>::Array(T* arr, int arrsize, int arrlength){
 }
 
 //======================================================
+//      DESTRUCTORS
+//======================================================
+template <typename T>
+Array<T>::~Array(){
+    delete [] A;
+}
+
+//======================================================
 //      GETTERS
 //======================================================
 template <typename T>
@@ -500,7 +508,7 @@ Array<T>* Complement(Array<T> *arr1, Array<T> *arr2){
 //      SANDBOX
 //======================================================
 template <typename T>
-void CartesianProduct(Array<T> arr1, Array<T> arr2){
+void DisplayCartesianProduct(Array<T> arr1, Array<T> arr2){
     T* a1 = arr1.GetArray();
     T* a2 = arr2.GetArray();
     T a3[arr1.GetSize() * arr2.GetSize()][2];
@@ -616,11 +624,9 @@ int main () {
     (*(Complement(&arr4,&arr2))).Display();
     (*(arr4.Complement(&arr2))).Display();
 
-
     //std::cout << "The Cartesian product arr2xarr4: " << std::endl;
-    //CartesianProduct(arr2,arr4);
+    //DisplayCartesianProduct(arr2,arr4);
     //std::cout << std::endl;
 
-    //(*(Union(&arr2,&arr4))).Display();
-    //(*(arr2.Union(&arr4))).Display();
+    std::cout << std::endl << std::endl;
 }
