@@ -90,6 +90,9 @@ void DiagonalMatrix<T>::FullPrint(){
     }
 }
 
+//======================================================
+//      MAIN
+//======================================================
 int main(){
     DiagonalMatrix<int> m(4);
     m.ShortPrint();
