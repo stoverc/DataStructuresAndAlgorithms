@@ -1,9 +1,15 @@
 #ifndef Array_H
 #define Array_H
 
+//======================================================
+//      PRE-DEFINE CLASS
+//======================================================
 template <typename T>
 class Array;
 
+//======================================================
+//      FRIEND FUNCTIONS
+//======================================================
 template <typename T>
 Array<T>* Union(Array<T> *arr1, Array<T> *arr2);
 
@@ -13,6 +19,9 @@ Array<T>* Intersection(Array<T> *arr1, Array<T> *arr2);
 template <typename T>
 Array<T>* Complement(Array<T> *arr1, Array<T> *arr2);
 
+//======================================================
+//      CLASS DEF
+//======================================================
 template <typename T>
 class Array
 {
