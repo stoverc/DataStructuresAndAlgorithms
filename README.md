@@ -21,7 +21,8 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>In <code>LowerTriangularMatrix.cpp</code>: Revamped loops to start at <code>i=1</code> and <code>j=1</code>.</li>
     <li>Later, initial commit of <code>UpperTriangularMatrix.h</code> and <code>UpperTriangularMatrix.cpp</code> using row-major mapping.</li>
     <li>Used <code>LowerTriangularMatrix*</code> to build initial commit of <code>SymmetricMatrix*</code>---and later, <code>TridiagonalMatrix*</code>---files.</li>
-    <li>Fixed bug in Fixed bug in <code>ShortPrint()</code> for <code>SymmetricMatrix.cpp</code>.</li>
+    <li>Fixed bug in <code>ShortPrint()</code> for <code>SymmetricMatrix.cpp</code>.</li>
+    <li>Later, fixed indexing bug in <code>TridiagonalMatrix.cpp</code> and fixed typo in <code>README</code>.</li>
 </ol>
 <h3>18 May 2023</h3>
 <ol>
