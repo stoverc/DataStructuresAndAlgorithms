@@ -27,15 +27,15 @@ TridiagonalMatrix<T>::~TridiagonalMatrix(){
 //======================================================
 template <typename T>
 T TridiagonalMatrix<T>::Get(int i, int j){
-    if(std::abs(i-j)>1){
+    if(std::abs(i-j) > 1){
         return 0;
     }
     else{//Lower Diag -> Main Diag -> Upper Diag
         if(i-j == 1){
-            return A[i-1];
+            return A[j-1];
         }
         else if(i-j == 0){
-            return A[n-1+i-1];
+            return A[n-1+j-1];
         }
         else {//if (i-j == -1){
             return A[2*n-1+i-1];
@@ -50,12 +50,12 @@ template <typename T>
 void TridiagonalMatrix<T>::Set(int i, int j, T x){
     if(std::abs(i-j) <= 1){//Lower Diag -> Main Diag -> Upper Diag
         if(i-j == 1){
-            A[i-1] = x;
+            A[j-1] = x;
         }
         else if(i-j == 0){
-            A[n-1+i-1] = x;
+            A[n-1+j-1] = x;
         }
-        else if (i-j == -1){
+        else {//(i-j == -1){
             A[2*n-1+i-1] = x;
         }
     }
@@ -73,7 +73,7 @@ void TridiagonalMatrix<T>::ShortPrint(){
     std::cout << "[";
 
     for(int i = 0; i < 3*n-2; i++){
-        if(i != 3*n-2){
+        if(i != 3*n-2-1){
             std::cout << A[i] << ", ";
         }
         else{
@@ -93,10 +93,10 @@ void TridiagonalMatrix<T>::FullPrint(){
             if(std::abs(i-j) <= 1){
                 if(j != n){
                     if(i-j == 1){
-                        std::cout << A[i-1] << " ";
+                        std::cout << A[j-1] << " ";
                     }
                     else if(i-j == 0){
-                        std::cout << A[n-1+i-1] << " ";
+                        std::cout << A[n-1+j-1] << " ";
                     }
                     else if (i-j == -1){
                         std::cout << A[2*n-1+i-1] << " ";
@@ -104,10 +104,10 @@ void TridiagonalMatrix<T>::FullPrint(){
                 }
                 else{
                     if(i-j == 1){
-                        std::cout << A[i-1];
+                        std::cout << A[j-1];
                     }
                     else if(i-j == 0){
-                        std::cout << A[n-1+i-1];
+                        std::cout << A[n-1+j-1];
                     }
                     else if (i-j == -1){
                         std::cout << A[2*n-1+i-1];
@@ -162,4 +162,5 @@ int main(){
     }
 
     m2.FullPrint();
+    m2.ShortPrint();
 }
