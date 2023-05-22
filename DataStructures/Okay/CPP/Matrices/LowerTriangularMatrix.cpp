@@ -68,18 +68,18 @@ void LowerTriangularMatrix<T>::ShortPrint(){
 
 template <typename T>
 void LowerTriangularMatrix<T>::FullPrint(){
-    for(int i = 0; i < n; i++){
+    for(int i = 1; i <= n; i++){
         std::cout << "[";
 
-        for(int j = 0; j < n; j++){
+        for(int j = 1; j <= n; j++){
             if(i >= j){
-                if(j != n-1){
-                    std::cout << A[i*(i+1)/2+j] << " ";
+                if(j != n){
+                    std::cout << A[(i-1)*(i)/2+j-1] << " ";
                 }
-                else std::cout << A[i*(i+1)/2+j];
+                else std::cout << A[(i-1)*(i)/2+j-1];
             }
             else {
-                if(j != n-1){
+                if(j != n){
                     std::cout << "0 ";
                 }
                 else std::cout << "0";
