@@ -16,6 +16,11 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+ <h3>22 May 2023</h3>
+<ol>
+    <li>In <code>LowerTriangularMatrix.cpp</code>: Revamped loops to start at <code>i=1</code> and <code>j=1</code>.</li>
+    <li>Later, initial commit of <code>UpperTriangularMatrix.h</code> and <code>UpperTriangularMatrix.cpp</code> using row-major mapping.</li>
+</ol>
 <h3>18 May 2023</h3>
 <ol>
     <li>Added destructor to Array ADT in <code>C++</code>.</li>
