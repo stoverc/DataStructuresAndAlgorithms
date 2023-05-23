@@ -9,7 +9,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 ## TODO:
  * Continue adding to <code>SparseMatrixStruct.cpp</code>.
- * Convert <code>SparseMatrixStruct.cpp</code> into a class with the appropriate header file.
+ * Implement header file + appropriate removal of member functions, etc., for <code>SparseMatrix.cpp</code>.
  * Get all the `Python` code translated in to `C++` (!!!) and `Java` (as time permits).
  * Translate `Array` ADT from `C++` to `Python` and `Java`.
  * Get study guide source re-added so I can work on it elsewhere.
@@ -23,7 +23,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>Later, added <code>Add()</code> functionality to <code>SparseMatrixStruct.cpp</code>.</li>
     <li>Uploaded initial commit of <code>SparseMatrix.cpp</code>, which uses <code>class</code>es instead of <code>struct</code>s.</li>
     <li>Later: Swapped <code>Read()</code> and <code>Display()</code> for overloaded <code>cin</code> and <code>cout</code>.</li>
-    <li>Even later: Implemented old <code>Add()</code> as custom <code>SparseMatrix SparseMatrix::operator+</code> operator.</li>
+    <li>Even later: Implemented old <code>Add()</code> as custom <code>SparseMatrix::operator+</code> operator.</li>
 </ol>
 <h3>22 May 2023</h3>
 <ol>
