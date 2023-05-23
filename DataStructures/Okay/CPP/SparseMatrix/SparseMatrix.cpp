@@ -27,39 +27,46 @@ class SparseMatrix{
             delete [] ele;
         }
 
-        void Read(){
-            std::cout << "Enter non-zero elements: " << std::endl;
-
-            for(int i = 0; i < numElts; i++){
-                std::cin >> ele[i].i >> ele[i].j >> ele[i].x;
-            }
-        }
-
-        void Display(){
-            int k = 0;
-
-            for(int i = 0; i < m; i++){
-                std::cout << "[";
-
-                for(int j = 0; j < n; j++){
-                    if(i == ele[k].i && j == ele[k].j){
-                        if(j != n-1){
-                            std::cout << ele[k++].x << " ";
-                        }
-                        else std::cout << ele[k++].x << "]";
-                    }
-                    else {
-                        if(j != n-1){
-                            std::cout << "0 ";
-                        }
-                        else std::cout << "0]";
-                    }
-                }
-
-                std::cout << std::endl;
-            }
-        }
+        friend std::istream & operator>>(std::istream &is, SparseMatrix &s);
+        friend std::ostream & operator<<(std::ostream &os, SparseMatrix &s);
 };
+
+std::istream & operator>>(std::istream &is, SparseMatrix &s){
+    std::cout << "Enter non-zero elements: " << std::endl;
+
+    for(int i = 0; i < s.numElts; i++){
+        std::cin >> s.ele[i].i >> s.ele[i].j >> s.ele[i].x;
+    }
+
+    return is;
+}
+
+std::ostream & operator<<(std::ostream &os, SparseMatrix &s){
+    int k = 0;
+
+    for(int i = 0; i < s.m; i++){
+        std::cout << "[";
+
+        for(int j = 0; j < s.n; j++){
+            if(i == s.ele[k].i && j == s.ele[k].j){
+                if(j != s.n-1){
+                    std::cout << s.ele[k++].x << " ";
+                }
+                else std::cout << s.ele[k++].x << "]";
+            }
+            else {
+                if(j != s.n-1){
+                    std::cout << "0 ";
+                }
+                else std::cout << "0]";
+            }
+        }
+
+        std::cout << std::endl;
+    }
+
+    return os;
+}
 
 int main(){
     //struct SparseMatrix s1, s2, *s3;
@@ -78,8 +85,8 @@ int main(){
     // Display(*s3);
 
     SparseMatrix s1(5,5,5);
-    s1.Read();
-    s1.Display();
+    std::cin >> s1;
+    std::cout << s1;
 
     return 0;
 }
