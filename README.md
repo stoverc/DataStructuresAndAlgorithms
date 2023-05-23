@@ -21,7 +21,8 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <ol>
     <li>Initial commit of <code>SparseMatrixStruct.cpp</code>.</li>
     <li>Later, added <code>Add()</code> functionality to <code>SparseMatrixStruct.cpp</code>.</li>
-    <li>Later, uploaded initial commit of <code>SparseMatrix.cpp</code>, which uses <code>class</code>es instead of <code>struct</code>s.</li>
+    <li>Uploaded initial commit of <code>SparseMatrix.cpp</code>, which uses <code>class</code>es instead of <code>struct</code>s.</li>
+    <li>Swapped <code>Read()</code> and <code>Display()</code> for overloaded <code>cin</code> and <code>cout</code>.</li>
 </ol>
 <h3>22 May 2023</h3>
 <ol>
