@@ -27,9 +27,57 @@ class SparseMatrix{
             delete [] ele;
         }
 
+        SparseMatrix operator+(SparseMatrix &s);
+
         friend std::istream & operator>>(std::istream &is, SparseMatrix &s);
         friend std::ostream & operator<<(std::ostream &os, SparseMatrix &s);
 };
+
+SparseMatrix SparseMatrix::operator+(SparseMatrix &s){
+    struct SparseMatrix *sum;
+
+    if(m != s.m || n != s.n){
+        std::cout << "Dimensions do not match!" << std::endl;
+    }
+
+    sum = new SparseMatrix(m,n,numElts+s.numElts);
+
+    int i = 0, j = 0, k = 0;
+
+    while(i < numElts && j < s.numElts){
+        if(ele[i].i < s.ele[j].i){
+            sum -> ele[k++] = ele[i++];
+        }
+        else if (ele[i].i > s.ele[j].i){
+            sum -> ele[k++] = s.ele[j++];
+        }
+        else{
+            if(ele[i].j < s.ele[j].j){
+                sum -> ele[k++] = ele[i++];
+            }
+            else if(ele[i].j > s.ele[j].j){
+                sum -> ele[k++] = s.ele[j++];
+            }
+            else{
+                sum -> ele[k] = ele[i];
+                sum -> ele[k++].x = ele[i++].x + s.ele[j++].x;
+            }
+        }
+    }
+
+    for(; i < numElts; i++){
+        sum -> ele[k++] = ele[i];
+    }
+
+    for(; j < s.numElts; j++){
+        sum -> ele[k++] = s.ele[j];
+    }
+
+    sum -> numElts = k;
+
+    return *sum;
+}
+
 
 std::istream & operator>>(std::istream &is, SparseMatrix &s){
     std::cout << "Enter non-zero elements: " << std::endl;
@@ -69,24 +117,25 @@ std::ostream & operator<<(std::ostream &os, SparseMatrix &s){
 }
 
 int main(){
-    //struct SparseMatrix s1, s2, *s3;
+    // SparseMatrix s1(5,5,5);
+    // std::cin >> s1;
+    // std::cout << s1;
 
-    //Create(&s);
-    //Display(s);
+    SparseMatrix s2(5,5,5);
+    SparseMatrix s3(5,5,5);
 
-    // Create(&s1);
-    // Create(&s2);
-    // s3 = Add(&s1,&s2);
-    // std::cout << "First matrix:" << std::endl;
-    // Display(s1);
-    // std::cout << "Second matrix:" << std::endl;
-    // Display(s2);
-    // std::cout << "Their sum:" << std::endl;
-    // Display(*s3);
+    std::cin >> s2;
+    std::cin >> s3;
 
-    SparseMatrix s1(5,5,5);
-    std::cin >> s1;
-    std::cout << s1;
+    std::cout << "First matrix: " << std::endl;
+    std::cout << s2;
+
+    std::cout << "Second matrix: " << std::endl;
+    std::cout << s3;
+
+    SparseMatrix sum = s2+s3;
+    std::cout << "Their sum: " << std::endl;
+    std::cout << sum;
 
     return 0;
 }
