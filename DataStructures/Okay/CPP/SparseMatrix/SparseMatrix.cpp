@@ -34,7 +34,7 @@ class SparseMatrix{
 };
 
 SparseMatrix SparseMatrix::operator+(SparseMatrix &s){
-    struct SparseMatrix *sum;
+    SparseMatrix *sum;
 
     if(m != s.m || n != s.n){
         std::cout << "Dimensions do not match!" << std::endl;
@@ -77,7 +77,6 @@ SparseMatrix SparseMatrix::operator+(SparseMatrix &s){
 
     return *sum;
 }
-
 
 std::istream & operator>>(std::istream &is, SparseMatrix &s){
     std::cout << "Enter non-zero elements: " << std::endl;
