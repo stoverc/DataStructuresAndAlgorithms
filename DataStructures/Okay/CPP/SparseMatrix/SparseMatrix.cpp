@@ -1,46 +1,58 @@
 #include <iostream>
 
+template <typename T>
 class Element{
     public:
         int i;
         int j;
-        int x;
+        T x;
 };
 
+template <typename T> class SparseMatrix; 
+template <typename T> std::istream & operator>>(std::istream &is, SparseMatrix<T> &s); 
+template <typename T> std::ostream & operator<<(std::ostream &os, SparseMatrix<T> &s);
+
+template <typename T>
 class SparseMatrix{
     private:
         int m; 
         int n;
         int numElts;
-        Element *ele;
+        Element<T> *ele;
 
     public:
-        SparseMatrix(int m, int n, int numElts){
-            this -> m = m;
-            this -> n = n;
-            this -> numElts = numElts;
-
-            ele = new Element[this -> numElts];
-        }
-
-        ~SparseMatrix(){
-            delete [] ele;
-        }
+        SparseMatrix(int m, int n, int numElts);
+        ~SparseMatrix();
 
         SparseMatrix operator+(SparseMatrix &s);
 
-        friend std::istream & operator>>(std::istream &is, SparseMatrix &s);
-        friend std::ostream & operator<<(std::ostream &os, SparseMatrix &s);
+        friend std::istream & operator>><T>(std::istream &is, SparseMatrix &s);
+        friend std::ostream & operator<<<T>(std::ostream &os, SparseMatrix &s);
 };
 
-SparseMatrix SparseMatrix::operator+(SparseMatrix &s){
-    SparseMatrix *sum;
+template <typename T>
+SparseMatrix<T>::SparseMatrix(int m, int n, int numElts){
+    this -> m = m;
+    this -> n = n;
+    this -> numElts = numElts;
+
+    ele = new Element<T>[this -> numElts];
+}
+
+template <typename T>
+SparseMatrix<T>::~SparseMatrix(){
+    delete [] ele;
+}
+
+template <typename T>
+SparseMatrix<T> SparseMatrix<T>::operator+(SparseMatrix<T> &s){
+    SparseMatrix<T> *sum;
 
     if(m != s.m || n != s.n){
         std::cout << "Dimensions do not match!" << std::endl;
     }
 
-    sum = new SparseMatrix(m,n,numElts+s.numElts);
+    sum = new SparseMatrix<T>(m,n,numElts+s.numElts);
 
     int i = 0, j = 0, k = 0;
 
@@ -78,7 +90,8 @@ SparseMatrix SparseMatrix::operator+(SparseMatrix &s){
     return *sum;
 }
 
-std::istream & operator>>(std::istream &is, SparseMatrix &s){
+template <typename T>
+inline std::istream & operator>>(std::istream &is, SparseMatrix<T> &s){
     std::cout << "Enter non-zero elements: " << std::endl;
 
     for(int i = 0; i < s.numElts; i++){
@@ -88,7 +101,8 @@ std::istream & operator>>(std::istream &is, SparseMatrix &s){
     return is;
 }
 
-std::ostream & operator<<(std::ostream &os, SparseMatrix &s){
+template <typename T>
+inline std::ostream & operator<<(std::ostream &os, SparseMatrix<T> &s){
     int k = 0;
 
     for(int i = 0; i < s.m; i++){
@@ -120,8 +134,8 @@ int main(){
     // std::cin >> s1;
     // std::cout << s1;
 
-    SparseMatrix s2(5,5,5);
-    SparseMatrix s3(5,5,5);
+    SparseMatrix<float> s2(5,5,5);
+    SparseMatrix<float> s3(5,5,5);
 
     std::cin >> s2;
     std::cin >> s3;
@@ -132,7 +146,7 @@ int main(){
     std::cout << "Second matrix: " << std::endl;
     std::cout << s3;
 
-    SparseMatrix sum = s2+s3;
+    SparseMatrix<float> sum = s2+s3;
     std::cout << "Their sum: " << std::endl;
     std::cout << sum;
 
