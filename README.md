@@ -9,8 +9,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 ## TODO:
  * Make sure `C++` files adhere to best practices re: [Rule of Three/Five/Zero](https://en.cppreference.com/w/cpp/language/rule_of_three) and [RAII](https://en.cppreference.com/w/cpp/language/raii). 
- * Implement header file(s) for `SparseMatrix.cpp`.
- * Continue adding to `SparseMatrixStruct.cpp`.
+ * Continue adding to `SparseMatrixStruct.cpp` and `SparseMatrix.cpp` (include subtraction; possibly multiplication?).
  * Get all the `Python` code translated in to `C++` (!!!) and `Java` (as time permits).
  * Translate `Array` ADT from `C++` to `Python` and `Java`.
  * Get study guide source re-added so I can work on it elsewhere.
@@ -22,7 +21,8 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <ol>
     <li>Initial commit of <code>SparseMatrix.h</code> and <code>SparseMatrixNew</code>, featuring hard-coded <code>int</code>-type data <code>Element.x</code>. I'm still trying to figure out the intricacies of the templating for non-integer types.</li>
     <li>Later, deleted those two files to try to figure out stuff.</li>
-    <li>After much work + help on Stack Overflow: Got <code>SparseMatrix.cpp</code> to work with generics / templating.</li>
+    <li>After much work + help on Stack Overflow: Got <code>SparseMatrix.cpp</code> to work with generics / templating. I'm an idiot for not considering forward-declaration as a solution sooner; forward-declaration literally solved one of my <code>Array.h</code> problems the other day!</li>
+    <li>Split <code>SparseMatrix.cpp<code> into <code>Element.h</code> and <code>SparseMatrix.h</code>.</li>
 </ol>
 <h3>23 May 2023</h3>
 <ol>
