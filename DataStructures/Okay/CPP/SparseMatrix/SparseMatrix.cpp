@@ -9,10 +9,10 @@ class Element{
 
 class SparseMatrix{
     private:
-        int m;
+        int m; 
         int n;
         int numElts;
-        struct Element *ele;
+        Element *ele;
 
     public:
         SparseMatrix(int m, int n, int numElts){
