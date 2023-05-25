@@ -30,7 +30,7 @@ class SparseMatrix{
         SparseMatrix(int m, int n, int numElts);
         ~SparseMatrix();
 
-        SparseMatrix operator+(SparseMatrix &s);
+        SparseMatrix operator+(const SparseMatrix &s);
 
         friend std::istream & operator>><T>(std::istream &is, SparseMatrix &s);
         friend std::ostream & operator<<<T>(std::ostream &os, SparseMatrix &s);
