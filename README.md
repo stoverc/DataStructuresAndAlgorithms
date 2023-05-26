@@ -17,6 +17,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>26 May 2023</h3>
+<ol>
+    <li>Updated the study guide.</li>
+</ol>
 <h3>24 May 2023</h3>
 <ol>
     <li>Initial commit of <code>SparseMatrix.h</code> and <code>SparseMatrixNew</code>, featuring hard-coded <code>int</code>-type data <code>Element.x</code>. I'm still trying to figure out the intricacies of the templating for non-integer types.</li>
