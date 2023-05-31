@@ -8,6 +8,8 @@ As of this writing (23 July 2022), most of the code is in `Python3`, though some
 As of 3 July 2022, a study guide has also made its way into the repo. This study guide is `LaTeX`'ed and is intended to help guide my studies + document the journey so far. **Update:** Later, I removed the `TeX` source code from the repo so that the code percentages would better reflect my _real_ contributions rather than showing a repo with 80% `TeX` code!
 
 ## TODO:
+ * Incorporate more headers for new `LinkedList.cpp` file.
+ * Work on porting the old `C++` singly linked list + doubly linked list algorithms to the new `LinkedList.cpp` implementation.
  * Make sure `C++` files adhere to best practices re: [Rule of Three/Five/Zero](https://en.cppreference.com/w/cpp/language/rule_of_three) and [RAII](https://en.cppreference.com/w/cpp/language/raii). 
  * Continue adding to `SparseMatrixStruct.cpp` and `SparseMatrix.cpp` (include subtraction; possibly multiplication?).
  * Get all the `Python` code translated in to `C++` (!!!) and `Java` (as time permits).
@@ -17,6 +19,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>31 May 2023</h3>
+<ol>
+    <li>Initial commit of <code>Node.h</code> and <code>LinkedList.cpp</code>; the particulars of this were written last week but uncommitted.</li>
+</ol>
 <h3>26 May 2023</h3>
 <ol>
     <li>Updated the study guide.</li>
