@@ -22,6 +22,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <h3>31 May 2023</h3>
 <ol>
     <li>Initial commit of <code>Node.h</code> and <code>LinkedList.cpp</code>; the particulars of this were written last week but uncommitted.</li>
+    <li>Test</li>
 </ol>
 <h3>26 May 2023</h3>
 <ol>
