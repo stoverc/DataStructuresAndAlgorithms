@@ -13,6 +13,9 @@ class Node {
 
         T GetData();
         Node<T>* GetNext();
+
+        void SetData(T datum);
+        void SetNext(Node<T>* nextdatum);
 };
 
 template <typename T>
@@ -35,6 +38,16 @@ T Node<T>::GetData(){
 template <typename T>
 Node<T>* Node<T>::GetNext(){
     return next;
+}
+
+template <typename T>
+void Node<T>::SetData(T datum){
+    this -> datum = datum;
+}
+
+template <typename T>
+void Node<T>::SetNext(Node<T>* nextdatum){
+    this -> next = nextdatum;
 }
 
 #endif
