@@ -19,6 +19,11 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>6 Jun 2023</h3>
+<ol>
+    <li>Changed <code>LinkedList.cpp</code> to have <code>head</code> as a pointer + percolated the associated method changes throughout.</li>
+    <li>Changed the name of old-<code>LinkedList.cpp</code> file to <code>LinkedListLegacy.cpp</code>.
+</ol>
 <h3>31 May 2023</h3>
 <ol>
     <li>Initial commit of <code>Node.h</code> and <code>LinkedList.cpp</code>; the particulars of this were written last week but uncommitted.</li>
@@ -69,7 +74,6 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>Later still: Changed a number of dereferencing operations to <code>-></code>s.</li>
     <li>Also, added <code>Intersection</code>, <code>Complement</code> member functions.</li>
 </ol> 
-
 <h3>15 May 2023</h3>
 <ol>
     <li>In <code>C++</code> Array ADT: Added functionality for <code>Intersection</code> and <code>Complement</code>.</li>
