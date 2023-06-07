@@ -21,6 +21,7 @@ class LinkedList {
         T Max();
 
         void Insert(T datum, int pos);
+        void Delete(int pos);
 };
 
 template <typename T>
@@ -163,6 +164,31 @@ void LinkedList<T>::Insert(T datum, int pos){
     }
 }
 
+template <typename T>
+void LinkedList<T>::Delete(int pos){
+    Node<T> *temp, *p;
+
+    if(pos == 0){
+        p = head;
+        head = head -> GetNext();
+        T x = p -> GetData();
+        delete p;
+    }
+    else if(pos > 0){
+        p = head;
+        temp = NULL;
+
+        for (int i = 0; i < pos-1; i++){
+            temp = p;
+            p = p -> GetNext();
+        }
+
+        temp -> SetNext(p -> GetNext());
+        T x = p -> GetData();
+        delete p;
+    }
+}
+
 int main(){
     int arr[] = {1,2,3,4,5};
     LinkedList<int> ll1(arr,5);
@@ -175,7 +201,14 @@ int main(){
 
     ll1.Insert(10,0);
     ll1.Insert(15,3);
+    ll1.Display();
 
+    ll1.Delete(0);
+    //std::cout << "The length is " << ll1.Length() << std::endl;
+    ll1.Display();
+    
+    ll1.Delete(4);
+    //std::cout << "The length is " << ll1.Length() << std::endl;
     ll1.Display();
 
     return 0;
