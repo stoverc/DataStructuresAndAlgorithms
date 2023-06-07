@@ -23,6 +23,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <ol>
     <li>Added <code>Display()</code> to <code>LinkedList.cpp</code>.</li>
     <li>Later, added <code>Length()</code>, <code>Sum()</code>, <code>Min()</code>, and <code>Max()</code> to <code>LinkedList.cpp</code>.</li>
+    <li>Added <code>Insert(...)</code> to <code>LinkedList.cpp</code>.</li>
 </ol>
 <h3>6 Jun 2023</h3>
 <ol>
