@@ -183,9 +183,11 @@ void LinkedList<T>::Delete(int pos){
             p = p -> GetNext();
         }
 
-        temp -> SetNext(p -> GetNext());
-        T x = p -> GetData();
-        delete p;
+        if(p){
+            temp -> SetNext(p -> GetNext());
+            T x = p -> GetData();
+            delete p;
+        }
     }
 }
 
