@@ -19,6 +19,8 @@ class LinkedList {
         T Sum();
         T Min();
         T Max();
+
+        void Insert(T datum, int pos);
 };
 
 template <typename T>
@@ -135,6 +137,32 @@ T LinkedList<T>::Max(){
     return max;
 }
 
+template <typename T>
+void LinkedList<T>::Insert(T datum, int pos){
+    Node<T> *temp, *p;
+
+    if(pos == 0){
+        temp = new Node<T>;
+        temp -> SetData(datum);
+        temp -> SetNext(head);
+        head = temp;
+    }
+    else if(pos > 0){
+        p = head;
+
+        for (int i = 0; i < pos-1; i++){
+            p = p -> GetNext();
+        }
+
+        if(p){
+            temp = new Node<T>;
+            temp -> SetData(datum);
+            temp -> SetNext(p -> GetNext());
+            p -> SetNext(temp);
+        }
+    }
+}
+
 int main(){
     int arr[] = {1,2,3,4,5};
     LinkedList<int> ll1(arr,5);
@@ -144,6 +172,11 @@ int main(){
     std::cout << "The sum is " << ll1.Sum() << std::endl;
     std::cout << "The min is " << ll1.Min() << std::endl;
     std::cout << "The max is " << ll1.Max() << std::endl;
+
+    ll1.Insert(10,0);
+    ll1.Insert(15,3);
+
+    ll1.Display();
 
     return 0;
 }
