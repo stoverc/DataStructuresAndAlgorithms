@@ -19,6 +19,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>7 Jun 2023</h3>
+<ol>
+    <li>Added <code>Display()</code> to <code>LinkedList.cpp</code>.</li>
+</ol>
 <h3>6 Jun 2023</h3>
 <ol>
     <li>Changed <code>LinkedList.cpp</code> to have <code>head</code> as a pointer + percolated the associated method changes throughout.</li>
