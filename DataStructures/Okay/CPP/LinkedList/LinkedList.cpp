@@ -13,6 +13,8 @@ class LinkedList {
         ~LinkedList();
 
         Node<T>* GetHead();
+
+        void Display();
 };
 
 template <typename T>
@@ -53,13 +55,29 @@ Node<T>* LinkedList<T>::GetHead(){
     return head;
 }
 
+template <typename T>
+void LinkedList<T>::Display(){
+    Node<T> *p = head;
+
+    std::cout << "[";
+
+    while(p){
+        if(p -> GetNext()){
+            std::cout << p -> GetData() << ",";
+        }
+        else{
+            std::cout << p -> GetData() << "]";
+        }
+
+        p = p -> GetNext();
+    }
+}
+
 int main(){
     int arr[] = {1,2,3,4,5};
     LinkedList<int> ll1(arr,5);
 
-    std::cout << ll1.GetHead() -> GetData() << std::endl;
-    std::cout << (ll1.GetHead() -> GetNext()) -> GetData() << std::endl;
-    std::cout << ((ll1.GetHead() -> GetNext()) -> GetNext()) -> GetData() << std::endl;
+    ll1.Display();
 
     return 0;
 }
