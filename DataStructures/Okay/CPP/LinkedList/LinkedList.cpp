@@ -22,6 +22,7 @@ class LinkedList {
 
         void Insert(T datum, int pos);
         void Delete(int pos);
+        bool SortedQ();
 };
 
 template <typename T>
@@ -191,6 +192,23 @@ void LinkedList<T>::Delete(int pos){
     }
 }
 
+template <typename T>
+bool LinkedList<T>::SortedQ(){
+    T x = (T) INT_MIN;
+    Node<T> *p = head;
+
+    while(p){
+        if(p -> GetData() < x){
+            return false;
+        }
+
+        x = p -> GetData();
+        p = p -> GetNext();
+    }
+
+    return true;
+}
+
 int main(){
     int arr[] = {1,2,3,4,5};
     LinkedList<int> ll1(arr,5);
@@ -200,6 +218,7 @@ int main(){
     std::cout << "The sum is " << ll1.Sum() << std::endl;
     std::cout << "The min is " << ll1.Min() << std::endl;
     std::cout << "The max is " << ll1.Max() << std::endl;
+    std::cout << std::boolalpha << "ll1 is sorted? " << ll1.SortedQ() << std::endl;
 
     ll1.Insert(10,0);
     ll1.Insert(15,3);
@@ -212,6 +231,17 @@ int main(){
     ll1.Delete(4);
     //std::cout << "The length is " << ll1.Length() << std::endl;
     ll1.Display();
+
+    LinkedList<int> ll2;
+    ll2.Insert(8,0);
+    ll2.Insert(3,1);
+    ll2.Insert(6,2);
+    ll2.Insert(5,0);
+    ll2.Insert(9,3);
+    ll2.Display();
+
+    std::cout << std::boolalpha << "ll2 is sorted? " << ll2.SortedQ() << std::endl;
+
 
     return 0;
 }
