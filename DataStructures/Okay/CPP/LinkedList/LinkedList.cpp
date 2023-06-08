@@ -20,10 +20,12 @@ class LinkedList {
         T Min();
         T Max();
 
-        void Insert(T datum, int pos);
+        void Insert(int pos, T datum);
         void Delete(int pos);
         bool SortedQ();
         void DeleteDuplicates();
+        void DeleteDuplicatesHash();
+
 };
 
 template <typename T>
@@ -141,7 +143,7 @@ T LinkedList<T>::Max(){
 }
 
 template <typename T>
-void LinkedList<T>::Insert(T datum, int pos){
+void LinkedList<T>::Insert(int pos, T datum){
     Node<T> *temp, *p;
 
     if(pos == 0){
@@ -238,6 +240,17 @@ void LinkedList<T>::DeleteDuplicates(){
     }
 }
 
+template <typename T>
+void LinkedList<T>::DeleteDuplicatesHash(){
+    int hash[this->Max()];
+
+    for(int i = 0; i < this -> Max(); i++){
+        hash[i] = 0;
+    }
+
+    for(int i = 0; i < this -> Max(); )
+}
+
 int main(){
     int arr[] = {1,2,3,4,5};
     LinkedList<int> ll1(arr,5);
@@ -249,8 +262,8 @@ int main(){
     std::cout << "The max is " << ll1.Max() << std::endl;
     std::cout << std::boolalpha << "ll1 is sorted? " << ll1.SortedQ() << std::endl;
 
-    ll1.Insert(10,0);
-    ll1.Insert(15,3);
+    ll1.Insert(0,10);
+    ll1.Insert(3,15);
     ll1.Display();
 
     ll1.Delete(0);
@@ -262,19 +275,19 @@ int main(){
     ll1.Display();
 
     LinkedList<int> ll2;
-    ll2.Insert(8,0);
-    ll2.Insert(3,1);
-    ll2.Insert(6,2);
-    ll2.Insert(5,0);
-    ll2.Insert(9,3);
+    ll2.Insert(0,8);
+    ll2.Insert(1,3);
+    ll2.Insert(2,6);
+    ll2.Insert(0,5);
+    ll2.Insert(3,9);
     ll2.Display();
 
     std::cout << std::boolalpha << "ll2 is sorted? " << ll2.SortedQ() << std::endl;
 
-    ll2.Insert(8,0);
-    ll2.Insert(3,1);
-    ll2.Insert(6,2);
-    ll2.Insert(6,2);
+    ll2.Insert(0,8);
+    ll2.Insert(1,3);
+    ll2.Insert(2,6);
+    ll2.Insert(2,6);
     ll2.Display();
 
     ll2.DeleteDuplicates();
