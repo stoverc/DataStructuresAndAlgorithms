@@ -24,7 +24,7 @@ class LinkedList {
         void Delete(int pos);
         bool SortedQ();
         void DeleteDuplicates();
-        void DeleteDuplicatesHash();
+        void Reverse();
 
 };
 
@@ -241,14 +241,22 @@ void LinkedList<T>::DeleteDuplicates(){
 }
 
 template <typename T>
-void LinkedList<T>::DeleteDuplicatesHash(){
-    int hash[this->Max()];
+void LinkedList<T>::Reverse(){
+    Node<T> *p, *q, *r;
 
-    for(int i = 0; i < this -> Max(); i++){
-        hash[i] = 0;
+    p = head;
+    q = NULL;
+    r = NULL;
+
+    while(p){
+        r = q;
+        q = p;
+        p = p -> GetNext();
+
+        q -> SetNext(r);
     }
 
-    for(int i = 0; i < this -> Max(); )
+    head = q;
 }
 
 int main(){
@@ -291,6 +299,9 @@ int main(){
     ll2.Display();
 
     ll2.DeleteDuplicates();
+    ll2.Display();
+
+    ll2.Reverse();
     ll2.Display();
 
     return 0;
