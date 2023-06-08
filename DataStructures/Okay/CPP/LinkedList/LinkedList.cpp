@@ -23,6 +23,7 @@ class LinkedList {
         void Insert(T datum, int pos);
         void Delete(int pos);
         bool SortedQ();
+        void DeleteDuplicates();
 };
 
 template <typename T>
@@ -209,6 +210,34 @@ bool LinkedList<T>::SortedQ(){
     return true;
 }
 
+//====================
+// Borrowed from 
+// https://www.geeksforgeeks.org/remove-duplicates-from-an-unsorted-linked-list/
+//====================
+template <typename T>
+void LinkedList<T>::DeleteDuplicates(){
+    Node<T> *ptr1, *ptr2, *dup;
+
+    ptr1 = head;
+
+    while(ptr1 && ptr1 -> GetNext()){
+        ptr2 = ptr1;
+
+        while(ptr2 -> GetNext()){
+            if(ptr1 -> GetData() == ptr2 -> GetNext() -> GetData()){
+                dup = ptr2 -> GetNext();
+                ptr2 -> SetNext(ptr2 -> GetNext() -> GetNext());
+                delete dup;
+            }
+            else{
+                ptr2 = ptr2 -> GetNext();
+            }
+        }
+
+        ptr1 = ptr1 -> GetNext();
+    }
+}
+
 int main(){
     int arr[] = {1,2,3,4,5};
     LinkedList<int> ll1(arr,5);
@@ -242,6 +271,14 @@ int main(){
 
     std::cout << std::boolalpha << "ll2 is sorted? " << ll2.SortedQ() << std::endl;
 
+    ll2.Insert(8,0);
+    ll2.Insert(3,1);
+    ll2.Insert(6,2);
+    ll2.Insert(6,2);
+    ll2.Display();
+
+    ll2.DeleteDuplicates();
+    ll2.Display();
 
     return 0;
 }
