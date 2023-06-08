@@ -22,6 +22,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <h3>8 Jun 2023</h3>
 <ol>
     <li>In <code>LinkedList.cpp</code>: Added new example + <code>SortedQ()</code>.</li>
+    <li>Later, added <code>DeleteDuplicates()</code> in <code>LinkedList.cpp</code>.</li>
 </ol>
 <h3>7 Jun 2023</h3>
 <ol>
