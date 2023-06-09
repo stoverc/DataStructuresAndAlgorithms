@@ -196,7 +196,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 </ol>
 <h3>27 Jun 2022</h3>
 <ol>
-    <li>1. Used some snippets from <a href = "https://stackoverflow.com/questions/68974018/insert-at-index-in-linked-list">this answer</a> to prototype a redo of SinglyLinkedList. This code + the code in the accepted comment contained >= 2 very serious bugs and needed quite a bit of plussing up, so I did that plus thoroughly documented everything before **finally** reaching the level of "accepted LeetCode answer."</li>
+    <li>Used some snippets from <a href = "https://stackoverflow.com/questions/68974018/insert-at-index-in-linked-list">this answer</a> to prototype a redo of SinglyLinkedList. This code + the code in the accepted comment contained >= 2 very serious bugs and needed quite a bit of plussing up, so I did that plus thoroughly documented everything before **finally** reaching the level of "accepted LeetCode answer."</li>
 </ol>
 <h3>26 Jun 2022</h3>
 <ol>
