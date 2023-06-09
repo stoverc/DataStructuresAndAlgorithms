@@ -8,6 +8,7 @@ As of this writing (23 July 2022), most of the code is in `Python3`, though some
 As of 3 July 2022, a study guide has also made its way into the repo. This study guide is `LaTeX`'ed and is intended to help guide my studies + document the journey so far. **Update:** Later, I removed the `TeX` source code from the repo so that the code percentages would better reflect my _real_ contributions rather than showing a repo with 80% `TeX` code!
 
 ## TODO:
+ * Use [this link](https://stackoverflow.com/questions/68055899/concatenating-two-linked-lists-using-operator-overloading-c) to concert `Concatenate(...)` functionality into operator overloading in `LinkedList.cpp` file.
  * Incorporate more headers for new `LinkedList.cpp` file.
  * Work on porting the old `C++` singly linked list + doubly linked list algorithms to the new `LinkedList.cpp` implementation.
  * Make sure `C++` files adhere to best practices re: [Rule of Three/Five/Zero](https://en.cppreference.com/w/cpp/language/rule_of_three) and [RAII](https://en.cppreference.com/w/cpp/language/raii). 
@@ -22,6 +23,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <h3>9 Jun 2023</h3>
 <ol>
     <li>In <code>LinkedList.cpp</code>: Added <code>Append(...)</code> functionality, which should have been here a long time ago.</li>
+    <li>Later, added <code>Concatenate(...)</code> functionality; later, this will come in the form of an overloaded operator.</li>
 </ol>
 <h3>8 Jun 2023</h3>
 <ol>
