@@ -19,6 +19,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>9 Jun 2023</h3>
+<ol>
+    <li>In <code>LinkedList.cpp</code>: Added <code>Append(...)</code> functionality, which should have been here a long time ago.</li>
+</ol>
 <h3>8 Jun 2023</h3>
 <ol>
     <li>In <code>LinkedList.cpp</code>: Added new example + <code>SortedQ()</code>.</li>
