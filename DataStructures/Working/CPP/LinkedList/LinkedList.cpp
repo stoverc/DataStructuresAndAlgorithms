@@ -20,12 +20,12 @@ class LinkedList {
         T Min();
         T Max();
 
+        void Append(T datum);
         void Insert(int pos, T datum);
         void Delete(int pos);
         bool SortedQ();
         void DeleteDuplicates();
         void Reverse();
-
 };
 
 template <typename T>
@@ -54,11 +54,14 @@ LinkedList<T>::LinkedList(T arr[], int n){
 template <typename T>
 LinkedList<T>::~LinkedList(){
     Node<T> *p = head;
-    while(head){
-        head = head -> GetNext();
+
+    while(p){
+        Node<T> *next = p -> GetNext();
         delete p;
-        p = head;
+        p = next;
     }
+    
+    head = NULL;
 }
 
 template <typename T>
@@ -140,6 +143,25 @@ T LinkedList<T>::Max(){
     }
 
     return max;
+}
+
+template <typename T>
+void LinkedList<T>::Append(T datum){
+    Node<T> *newnode = new Node<T>();
+    newnode -> SetData(datum);
+    newnode -> SetNext(NULL);
+
+    if(head == NULL){
+        head = newnode;
+    }
+    else{
+        Node<T> *temp = head;
+        while(temp -> GetNext()){
+            temp = temp -> GetNext();
+        }
+
+        temp -> SetNext(newnode);
+    }
 }
 
 template <typename T>
@@ -302,6 +324,11 @@ int main(){
     ll2.Display();
 
     ll2.Reverse();
+    ll2.Display();
+
+    ll2.Append(5);
+    ll2.Append(6);
+    ll2.Append(1349);
     ll2.Display();
 
     return 0;
