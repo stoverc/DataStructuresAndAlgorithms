@@ -25,6 +25,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>Later, added <code>DeleteDuplicates()</code> in <code>LinkedList.cpp</code>.</li>
     <li>Eventually, swapped order of parameters for <code>Insert(...)</code> to better match what happens in the <code>Array</code> ADT.</li>
     <li>Added <code>Reverse()</code> functionality to <code>LinkedList.cpp</code>.</li>
+    <li>From home: Renamed <code>/Okay/</code> to <code>/Working/</code>.</li>
 </ol>
 <h3>7 Jun 2023</h3>
 <ol>
