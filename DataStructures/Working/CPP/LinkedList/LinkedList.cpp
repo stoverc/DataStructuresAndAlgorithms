@@ -26,7 +26,8 @@ class LinkedList {
         bool SortedQ();
         void DeleteDuplicates();
         void Reverse();
-        LinkedList<T> Concatenate (LinkedList<T> &list2);
+        LinkedList<T> Join (LinkedList<T> &list2);
+        void Concatenate (LinkedList<T> &list2);
 };
 
 template <typename T>
@@ -287,7 +288,7 @@ void LinkedList<T>::Reverse(){
 // https://stackoverflow.com/questions/68055899/concatenating-two-linked-lists-using-operator-overloading-c
 //====================
 template <typename T>
-LinkedList<T> LinkedList<T>::Concatenate(LinkedList<T> &list2){
+LinkedList<T> LinkedList<T>::Join(LinkedList<T> &list2){
     LinkedList<T> list3;
 
     Node<T> *ptr1 = head;
@@ -304,6 +305,16 @@ LinkedList<T> LinkedList<T>::Concatenate(LinkedList<T> &list2){
     }
 
     return list3;
+}
+
+template <typename T>
+void LinkedList<T>::Concatenate(LinkedList<T> &list2){
+    Node<T> *ptr = list2.GetHead();
+
+    while(ptr){
+        this -> Append(ptr -> GetData());
+        ptr = ptr -> GetNext();
+    }
 }
 
 int main(){
@@ -359,8 +370,11 @@ int main(){
     std::cout << "Concatenate: " << std::endl;
     ll1.Display();
     ll2.Display();
-    LinkedList<int> ll3 = ll1.Concatenate(ll2);
+    LinkedList<int> ll3 = ll1.Join(ll2);
     ll3.Display();
+
+    ll1.Concatenate(ll2);
+    ll1.Display();
 
     return 0;
 }
