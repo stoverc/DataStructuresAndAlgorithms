@@ -28,6 +28,7 @@ class LinkedList {
         void Reverse();
         LinkedList<T> Join (LinkedList<T> &list2);
         void Concatenate (LinkedList<T> &list2);
+        T Middle();
 };
 
 template <typename T>
@@ -315,6 +316,27 @@ void LinkedList<T>::Concatenate(LinkedList<T> &list2){
         this -> Append(ptr -> GetData());
         ptr = ptr -> GetNext();
     }
+
+    // July 10 or 17
+}
+
+template <typename T>
+T LinkedList<T>::Middle(){
+    Node<T> *p = head, *q = head;
+
+    while(q){
+        q = q -> GetNext();
+
+        if(q){
+            q = q -> GetNext();
+        }
+
+        if(q){
+            p = p -> GetNext();
+        }
+    }
+
+    return p -> GetData();
 }
 
 int main(){
@@ -372,9 +394,13 @@ int main(){
     ll2.Display();
     LinkedList<int> ll3 = ll1.Join(ll2);
     ll3.Display();
+    ll3.DeleteDuplicates();
+    ll3.Display();
 
     ll1.Concatenate(ll2);
     ll1.Display();
+
+    std::cout << "The middle node of ll1 is " << ll1.Middle() << std::endl;
 
     return 0;
 }
