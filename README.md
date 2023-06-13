@@ -23,6 +23,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <h3>13 Jun 2023</h3>
 <ol>
     <li>Added <code>Middle()</code> support to <code>LinkedList.cpp</code>.</li>
+    <li>Later, updated the study guide with details related to linked lists, variants of linked lists, and linked  lists versus arrays.</li>
 </ol>
 <h3>9 Jun 2023</h3>
 <ol>
