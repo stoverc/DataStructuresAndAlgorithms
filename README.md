@@ -8,6 +8,7 @@ As of this writing (23 July 2022), most of the code is in `Python3`, though some
 As of 3 July 2022, a study guide has also made its way into the repo. This study guide is `LaTeX`'ed and is intended to help guide my studies + document the journey so far. **Update:** Later, I removed the `TeX` source code from the repo so that the code percentages would better reflect my _real_ contributions rather than showing a repo with 80% `TeX` code!
 
 ## TODO:
+ * Consider returning pointer-type variables in data structures where "actual return" of a variable is impossible (see `stack` in CPP).
  * Use [this link](https://stackoverflow.com/questions/68055899/concatenating-two-linked-lists-using-operator-overloading-c) to concert `Concatenate(...)` functionality into operator overloading in `LinkedList.cpp` file.
  * Incorporate more headers for new `LinkedList.cpp` file.
  * Work on porting the old `C++` singly linked list + doubly linked list algorithms to the new `LinkedList.cpp` implementation.
@@ -24,6 +25,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <ol>
     <li>Initial commit of array-based <code>stack.cpp</code> in CPP.</li>
     <li>Added <code>Pop()</code> functionality to stack.</li>
+    <li>After some time weighing how to handle the <i>Stack underflow!</i> situation, changed <code>Pop()</code> to return pointer type variable.</li>
 </ol>
  <h3>14 Jun 2023</h3>
 <ol>
