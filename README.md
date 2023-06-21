@@ -27,6 +27,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
     <li>Added <code>Pop()</code> functionality to stack.</li>
     <li>After some time weighing how to handle the <i>Stack underflow!</i> situation, changed <code>Pop()</code> to return pointer type variable.</li>
     <li>After learning that <i>Stack underflow!</i> resulted in seg fault in VSCode, I decided to undo the above change for the time being.</li>
+    <li>Later, Added <code>Peek(...)</code>, <code>IsEmpty()</code>, and <code>IsFull()</code>.</li>
 </ol>
  <h3>14 Jun 2023</h3>
 <ol>
