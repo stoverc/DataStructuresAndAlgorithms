@@ -14,7 +14,7 @@ class Stack {
 
         void Display();
         void Push(T x);
-        T* Pop();
+        T Pop();
 };
 
 template <typename T>
@@ -39,14 +39,19 @@ Stack<T>::~Stack(){
 
 template <typename T>
 void Stack<T>::Display(){
-    std::cout << "[";
+    if(top == -1){
+        std::cout << "[]" << std::endl;
+    }
+    else{
+        std::cout << "[";
 
-    for(int i = top; i >= 0; i--){
-        if(i > 0){
-            std::cout << data[i] << ",";
-        }
-        else{
-            std::cout << data[i] << "]" << std::endl;
+        for(int i = top; i >= 0; i--){
+            if(i > 0){
+                std::cout << data[i] << ",";
+            }
+            else{
+                std::cout << data[i] << "]" << std::endl;
+            }
         }
     }
 }
@@ -62,26 +67,43 @@ void Stack<T>::Push(T x){
     }
 }
 
+// template <typename T>
+// T* Stack<T>::Pop(){
+//     if(top == -1){
+//         std::cout << "Stack underflow!" << std::endl;
+//         return NULL;
+//     }
+//     else{
+//         return &(data[top--]);
+//     }
+// }
+
 template <typename T>
-T* Stack<T>::Pop(){
+T Stack<T>::Pop(){
     if(top == -1){
         std::cout << "Stack underflow!" << std::endl;
-        return NULL;
+        return (T) NULL;
     }
     else{
-        return &(data[top--]);
+        return data[top--];
     }
 }
 
 int main(){
     Stack<int> ll1(5);
-    ll1.Push(2);
-    ll1.Push(22);
-    ll1.Push(19);
+    ll1.Push(10);
+    ll1.Push(20);
+    //ll1.Push(30);
+    //ll1.Push(40);
+    //ll1.Push(50);
 
     ll1.Display();
 
-    std::cout << "Popping: " << *ll1.Pop() << std::endl;
+    std::cout << "Popping: " << ll1.Pop() << std::endl;
+    ll1.Display();
+    std::cout << "Popping: " << ll1.Pop() << std::endl;
+    ll1.Display();
+    std::cout << "Popping: " << ll1.Pop() << std::endl;
     ll1.Display();
 
     return 0;
