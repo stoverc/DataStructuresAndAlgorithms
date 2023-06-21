@@ -20,7 +20,11 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
-<h3>14 Jun 2023</h3>
+<h3>21 Jun 2023</h3>
+<ol>
+    <li>Initial commit of array-based <code>stack.cpp</code> in CPP.</li>
+</ol>
+ <h3>14 Jun 2023</h3>
 <ol>
     <li>Updated the study guide some restructuring re: Stacks, Queues, etc.</li>
 </ol>
