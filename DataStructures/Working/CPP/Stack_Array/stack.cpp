@@ -15,6 +15,9 @@ class Stack {
         void Display();
         void Push(T x);
         T Pop();
+        T Peek(int index);
+        bool IsEmpty();
+        bool IsFull();
 };
 
 template <typename T>
@@ -89,21 +92,45 @@ T Stack<T>::Pop(){
     }
 }
 
+template <typename T>
+T Stack<T>::Peek(int index){
+    if(top-index+1 < 0){
+        std::cout << "Stack underflow!" << std::endl;
+        return (T) NULL;
+    }
+    else{
+        return data[top-index+1];
+    }
+}
+
+template <typename T>
+bool Stack<T>::IsEmpty(){
+    if(top == -1){
+        return true;
+    }
+    else return false;
+}
+
+template <typename T>
+bool Stack<T>::IsFull(){
+    if(top == size-1){
+        return true;
+    }
+    else return false;
+}
+
 int main(){
     Stack<int> ll1(5);
     ll1.Push(10);
     ll1.Push(20);
-    //ll1.Push(30);
-    //ll1.Push(40);
-    //ll1.Push(50);
+    ll1.Push(30);
+    ll1.Push(40);
 
     ll1.Display();
 
-    std::cout << "Popping: " << ll1.Pop() << std::endl;
-    ll1.Display();
-    std::cout << "Popping: " << ll1.Pop() << std::endl;
-    ll1.Display();
-    std::cout << "Popping: " << ll1.Pop() << std::endl;
+    std::cout << "Peeking: " << ll1.Peek(1) << std::endl;
+    std::cout << "Peeking: " << ll1.Peek(2) << std::endl;
+    std::cout << "Peeking: " << ll1.Peek(3) << std::endl;
     ll1.Display();
 
     return 0;
