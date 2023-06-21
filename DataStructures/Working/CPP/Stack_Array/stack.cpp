@@ -14,7 +14,7 @@ class Stack {
 
         void Display();
         void Push(T x);
-        T Pop();
+        T* Pop();
 };
 
 template <typename T>
@@ -63,13 +63,13 @@ void Stack<T>::Push(T x){
 }
 
 template <typename T>
-T Stack<T>::Pop(){
+T* Stack<T>::Pop(){
     if(top == -1){
         std::cout << "Stack underflow!" << std::endl;
-        return -1;
+        return NULL;
     }
     else{
-        return data[top--];
+        return &(data[top--]);
     }
 }
 
@@ -81,7 +81,7 @@ int main(){
 
     ll1.Display();
 
-    std::cout << "Popping: " << ll1.Pop() << std::endl;
+    std::cout << "Popping: " << *ll1.Pop() << std::endl;
     ll1.Display();
 
     return 0;
