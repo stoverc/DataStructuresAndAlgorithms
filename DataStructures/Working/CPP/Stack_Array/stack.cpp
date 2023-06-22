@@ -95,7 +95,7 @@ T Stack<T>::Pop(){
 template <typename T>
 T Stack<T>::Peek(int index){
     if(top-index+1 < 0){
-        std::cout << "Stack underflow!" << std::endl;
+        std::cout << "Invalid Position!" << std::endl;
         return (T) NULL;
     }
     else{
