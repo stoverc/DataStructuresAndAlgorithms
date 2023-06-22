@@ -23,6 +23,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <summary><h2>Changelog</h2></summary>
 <h3>21 Jun 2023</h3>
 <ol>
+    <li>In array-based <code>stack.cpp</code>: Made changes to <code>Peek()</code>.</li>
+</ol>
+<h3>21 Jun 2023</h3>
+<ol>
     <li>Initial commit of array-based <code>stack.cpp</code> in CPP.</li>
     <li>Added <code>Pop()</code> functionality to stack.</li>
     <li>After some time weighing how to handle the <i>Stack underflow!</i> situation, changed <code>Pop()</code> to return pointer type variable.</li>
