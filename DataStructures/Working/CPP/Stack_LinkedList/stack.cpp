@@ -44,7 +44,22 @@ Stack<T>::~Stack(){
 
 template <typename T>
 void Stack<T>::Display(){
-    data.Display();
+    Node<T> *p = data.GetHead();
+    int i = 0;
+
+    std::cout << "[";
+
+    while(p && i <= top){
+        if(p -> GetNext() && i < top){
+            std::cout << p -> GetData() << ",";
+        }
+        else{
+            std::cout << p -> GetData() << "]" << std::endl;
+        }
+
+        i++;
+        p = p -> GetNext();
+    }
 }
 
 template <typename T>

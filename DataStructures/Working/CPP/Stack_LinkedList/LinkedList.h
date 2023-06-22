@@ -13,7 +13,6 @@ class LinkedList {
         ~LinkedList();
 
         Node<T>* GetHead();
-        void Display();
 
         void Append(T datum);
         void InsertAtHead(T datum);
@@ -59,24 +58,6 @@ LinkedList<T>::~LinkedList(){
 template <typename T>
 Node<T>* LinkedList<T>::GetHead(){
     return head;
-}
-
-template <typename T>
-void LinkedList<T>::Display(){
-    Node<T> *p = head;
-
-    std::cout << "[";
-
-    while(p){
-        if(p -> GetNext()){
-            std::cout << p -> GetData() << ",";
-        }
-        else{
-            std::cout << p -> GetData() << "]" << std::endl;
-        }
-
-        p = p -> GetNext();
-    }
 }
 
 template <typename T>
