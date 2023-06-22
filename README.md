@@ -25,6 +25,8 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <ol>
     <li>In array-based <code>stack.cpp</code>: Made changes to <code>Peek()</code>.</li>
     <li>Later, made initial commits of <code>Node.h</code>, <code>LinkedList.h</code>, and <code>stack.cpp</code> for <code>LinkedList</code>-based stack.</li>
+    <li>Made changes to <code>Display()</code> functions in both <code>LinkedList.h</code> and <code>LinkedList</code>-based <code>stack.cpp</code>.</li>
+    <li>Later, made changes to <code>Peek(int index)</code> in <code>LinkedList</code>-based <code>stack.cpp</code> to ensure that <code>"Invalid Position!"</code> prints whenever <code>index</code> is greater than <code>top+1</code>.</li>
 </ol>
 <h3>21 Jun 2023</h3>
 <ol>
