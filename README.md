@@ -24,6 +24,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <h3>21 Jun 2023</h3>
 <ol>
     <li>In array-based <code>stack.cpp</code>: Made changes to <code>Peek()</code>.</li>
+    <li>Later, made initial commits of <code>Node.h</code>, <code>LinkedList.h</code>, and <code>stack.cpp</code> for <code>LinkedList</code>-based stack.</li>
 </ol>
 <h3>21 Jun 2023</h3>
 <ol>
