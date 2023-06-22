@@ -96,12 +96,12 @@ T Stack<T>::Pop(){
 template <typename T>
 T Stack<T>::Peek(int index){
     Node<T> *p = data.GetHead();
-    
+
     for(int i = 0; p != NULL && i < index-1; i++){
         p = p -> GetNext();
     }
 
-    if(p != NULL){
+    if(p != NULL && index <= top+1){
         return p -> GetData();
     }
     else{
