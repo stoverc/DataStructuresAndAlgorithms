@@ -196,7 +196,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <ol>
     <li>Renamed the repo to include common algorithms. Will ultimately restructure the directories as well.</li>
     <li>Later, restructured all subdirectories.</li>
-    <li><p>Much later, wrote + uploaded initial versions of <code>SelectionSort</code> for both <code>Python3</code> and <code>Java</code>.</p>
+    <li>Much later, wrote + uploaded initial versions of <code>SelectionSort</code> for both <code>Python3</code> and <code>Java</code>.
     <p>Both versions include the algorithm, as well as a <code>SelectionSortAnalysis</code> method/function which shows how the number of steps grows as the size of the input array doubles.</p>
     <p>What I <i>reallllllly</i> want to show is how time increases, not code count. I'll do some digging into that soon and try to implement ASAP.</p></li>
     <li>Much later still, updated the study guide pretty heavily, including uses of newly-included images and a new <text>.gitignore</text> file.</li>
