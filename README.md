@@ -21,6 +21,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>26 Jun 2023</h3>
+<ol>
+    <li>Edited the study guide to include more information about queues and related structures.</li>
+</ol>
 <h3>23 Jun 2023</h3>
 <ol>
     <li>Edited the study guide to include more information about queues + to better delineate the subsections of the stack and queue topics.</li>
