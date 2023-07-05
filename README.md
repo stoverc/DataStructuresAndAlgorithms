@@ -24,6 +24,7 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 <h3>5 Jul 2023 </h3>
 <ol>
     <li>Reorganization of Trees, Tries, and Hybrid Trees in the study guide.</li>
+    <li>Later, more fleshing out of study guide subsections on trees and substructures.</li>
 </ol>
 <h3>26 Jun 2023</h3>
 <ol>
