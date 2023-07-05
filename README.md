@@ -21,6 +21,10 @@ As of 3 July 2022, a study guide has also made its way into the repo. This study
 
 <details>
 <summary><h2>Changelog</h2></summary>
+<h3>5 Jul 2023 </h3>
+<ol>
+    <li>Reorganization of Trees, Tries, and Hybrid Trees in the study guide.</li>
+</ol>
 <h3>26 Jun 2023</h3>
 <ol>
     <li>Edited the study guide to include more information about queues and related structures.</li>
